@@ -1,0 +1,94 @@
+{{ define "main" }}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Kubernetes Blog Series</p>
+    <h1>Master Kubernetes —<br>From Custom Metrics to<br>Production-Ready Platforms</h1>
+    <p class="hero-sub">
+      PipelineCraft.io brings you in-depth, hands-on DevSecOps and CI/CD coverage.
+      Every topic is a linked two-part series — Part 1 builds the foundation,
+      Part 2 takes it to production.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span>55</span><p>Pairs</p></div>
+      <div class="stat"><span>110</span><p>Posts</p></div>
+      <div class="stat"><span>16</span><p>Sections</p></div>
+    </div>
+    <div class="hero-cta">
+      <a href="/blog/custom-metrics-exporter-kubernetes" class="btn-primary">Start with Part 1 →</a>
+      <a href="#sections" class="btn-secondary">Browse All Sections ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <p>
+      At <strong>PipelineCraft.io</strong>, we believe deep CI/CD and DevSecOps knowledge
+      should be accessible, practical, and progressive. This series is not a collection of
+      isolated tutorials — every pair of posts is designed to take you from concept to
+      implementation, with each section building skills you will use in real production environments.
+    </p>
+  </div>
+</section>
+
+<!-- SERIES SECTIONS -->
+<section class="sections" id="sections">
+  <div class="container">
+    <h2>All Sections</h2>
+
+    {{ range .Params.sections }}
+    <div class="section-block">
+      <div class="section-header">
+        <h3>{{ .number }}. {{ .title }}</h3>
+        <p class="section-desc">{{ .description }}</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .pairs }}
+          <tr class="status-{{ .status }}">
+            <td>{{ .pair }}</td>
+            <td>{{ if .part1url }}<a href="{{ .part1url }}">{{ .part1 }}</a>{{ else }}{{ .part1 }}{{ end }}</td>
+            <td>{{ if .part2url }}<a href="{{ .part2url }}">{{ .part2 }}</a>{{ else }}{{ .part2 }}{{ end }}</td>
+            <td>
+              {{ if eq .status "published" }}<span class="badge published">✅ Published</span>
+              {{ else if eq .status "partial" }}<span class="badge partial">🔄 Part 1 Live</span>
+              {{ else }}<span class="badge coming-soon">🔜 Coming Soon</span>{{ end }}
+            </td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe" id="subscribe">
+  <div class="container">
+    <h2>Stay ahead in DevSecOps and CI/CD</h2>
+    <p>New pairs drop every week. Subscribe to get notified — no noise, just deep technical content.</p>
+    <form class="subscribe-form" action="/subscribe" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+    <div class="social-links">
+      <a href="{{ .Site.Params.linkedin }}" target="_blank">LinkedIn</a>
+      <a href="{{ .Site.Params.github }}" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

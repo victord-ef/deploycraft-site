@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ .Site.Params.description }}" />
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/">PipelineCraft<span>.io</span></a>
+      <nav>
+        <a href="/#sections">Series</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/#subscribe" class="btn-nav">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ now.Year }} PipelineCraft.io · DevSecOps · CI/CD · Cloud Native Engineering</p>
+      <p class="tagline">Built by practitioners, for practitioners.</p>
+      <div class="footer-links">
+        <a href="{{ .Site.Params.github }}" target="_blank">GitHub</a>
+        <a href="{{ .Site.Params.linkedin }}" target="_blank">LinkedIn</a>
+        <a href="mailto:{{ .Site.Params.email }}">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+baseURL = "https://pipelinecraft.io/"
+languageCode = "en-us"
+title = "PipelineCraft.io"
+
+[params]
+  description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
+  author = "PipelineCraft.io"
+  email = "hello@pipelinecraft.io"
+  github = "https://github.com/pipelinecraft"
+  linkedin = "https://linkedin.com/company/pipelinecraft"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

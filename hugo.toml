@@ -13,3 +13,15 @@ title = "PipelineCraft.io"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[params]
+  description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
+  author = "DeployCraft.io"
+  email = "hello@deploycraft.io"
+  github = "https://github.com/victord-ef"
+  linkedin = "https://linkedin.com/company/deploycraft"

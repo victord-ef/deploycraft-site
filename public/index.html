@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.133.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners" />
+  <title>Kubernetes Blog Series | PipelineCraft.io</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/">PipelineCraft<span>.io</span></a>
+      <nav>
+        <a href="/#sections">Series</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/#subscribe" class="btn-nav">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    
+
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Kubernetes Blog Series</p>
+    <h1>Master Kubernetes —<br>From Custom Metrics to<br>Production-Ready Platforms</h1>
+    <p class="hero-sub">
+      PipelineCraft.io brings you in-depth, hands-on DevSecOps and CI/CD coverage.
+      Every topic is a linked two-part series — Part 1 builds the foundation,
+      Part 2 takes it to production.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span>55</span><p>Pairs</p></div>
+      <div class="stat"><span>110</span><p>Posts</p></div>
+      <div class="stat"><span>16</span><p>Sections</p></div>
+    </div>
+    <div class="hero-cta">
+      <a href="/blog/custom-metrics-exporter-kubernetes" class="btn-primary">Start with Part 1 →</a>
+      <a href="#sections" class="btn-secondary">Browse All Sections ↓</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="about">
+  <div class="container">
+    <p>
+      At <strong>PipelineCraft.io</strong>, we believe deep CI/CD and DevSecOps knowledge
+      should be accessible, practical, and progressive. This series is not a collection of
+      isolated tutorials — every pair of posts is designed to take you from concept to
+      implementation, with each section building skills you will use in real production environments.
+    </p>
+  </div>
+</section>
+
+
+<section class="sections" id="sections">
+  <div class="container">
+    <h2>All Sections</h2>
+
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>1. Custom Metrics &amp; Autoscaling</h3>
+        <p class="section-desc">Scale your workloads on the signals that actually drive load — not just CPU and memory.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-published">
+            <td>Pair 1</td>
+            <td><a href="/blog/custom-metrics-exporter-kubernetes">Building a custom metrics exporter in Go</a></td>
+            <td><a href="/blog/connecting-custom-metrics-hpa">Connecting custom metrics to the HorizontalPodAutoscaler</a></td>
+            <td>
+              <span class="badge published">✅ Published</span>
+              
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 4</td>
+            <td>Deploying KEDA for event-driven autoscaling</td>
+            <td>Scaling on Kafka lag with KEDA ScaledObjects</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>2. Admission Webhooks &amp; Policy</h3>
+        <p class="section-desc">Intercept, validate, and enforce policy on every resource before it hits your cluster.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-published">
+            <td>Pair 2</td>
+            <td><a href="/blog/custom-admission-webhook-kubernetes">Writing a custom admission webhook in Kubernetes</a></td>
+            <td><a href="/blog/enforcing-policy-admission-webhook">Enforcing policy with an admission webhook</a></td>
+            <td>
+              <span class="badge published">✅ Published</span>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>3. Multi-cluster Scheduling</h3>
+        <p class="section-desc">Place and federate workloads across clusters with precision.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-partial">
+            <td>Pair 3</td>
+            <td><a href="/blog/placement-decision-api-adoption-guide">Adopting the PlacementDecision API for multi-cluster scheduling</a></td>
+            <td>Federating workloads across clusters using PlacementDecision</td>
+            <td>
+              <span class="badge partial">🔄 Part 1 Live</span>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>4. RBAC &amp; Access Control</h3>
+        <p class="section-desc">Design, enforce, and audit access control across your Kubernetes environments.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 5</td>
+            <td>Implementing RBAC in Kubernetes</td>
+            <td>Auditing and tightening RBAC permissions with kubectl-who-can</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>5. Certificates &amp; Secrets</h3>
+        <p class="section-desc">Automate TLS, rotate credentials, and keep secrets out of plain sight.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 6</td>
+            <td>Issuing TLS certificates for workloads using cert-manager</td>
+            <td>Automating certificate rotation and renewal in Kubernetes</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 7</td>
+            <td>Encrypting Kubernetes Secrets at rest</td>
+            <td>Syncing secrets from HashiCorp Vault using the External Secrets Operator</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>6. Networking</h3>
+        <p class="section-desc">Control traffic, enforce boundaries, and secure communication between workloads.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 8</td>
+            <td>Implementing NetworkPolicy for pod-to-pod traffic control</td>
+            <td>Enforcing zero-trust networking with Kubernetes NetworkPolicy</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>7. Observability</h3>
+        <p class="section-desc">Trace, measure, and correlate signals across your entire cluster.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 9</td>
+            <td>Setting up distributed tracing in Kubernetes with OpenTelemetry</td>
+            <td>Correlating traces, metrics, and logs for cluster-wide observability</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>8. Storage / CSI</h3>
+        <p class="section-desc">Build and operate custom storage integrations for stateful workloads.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 10</td>
+            <td>Writing a custom CSI driver for Kubernetes</td>
+            <td>Handling volume lifecycle and snapshots with your CSI driver</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>9. Operators &amp; CRDs</h3>
+        <p class="section-desc">Extend Kubernetes with custom resources and automate Day-2 operations.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 11</td>
+            <td>Defining a Custom Resource Definition (CRD) in Kubernetes</td>
+            <td>Validating custom resources with CEL expressions in CRDs</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 12</td>
+            <td>Writing your first Kubernetes controller with controller-runtime</td>
+            <td>Handling reconciliation loops and error recovery in your controller</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 13</td>
+            <td>Building a Kubernetes Operator with the Operator SDK</td>
+            <td>Managing Operator lifecycle with the Operator Lifecycle Manager (OLM)</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 14</td>
+            <td>Implementing leader election and high availability in your Operator</td>
+            <td>Upgrading CRDs safely across versions with conversion webhooks</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 15</td>
+            <td>Testing Kubernetes Operators with envtest</td>
+            <td>Publishing and distributing your Operator on OperatorHub</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>10. GitOps &amp; CI/CD</h3>
+        <p class="section-desc">Automate deployments, enforce delivery standards, and ship with confidence.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 16</td>
+            <td>Introduction to GitOps principles and workflow in Kubernetes</td>
+            <td>Setting up a GitOps repository structure for Kubernetes manifests</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 17</td>
+            <td>Installing and bootstrapping Flux in a Kubernetes cluster</td>
+            <td>Automating deployments with Flux Kustomization and HelmRelease</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 18</td>
+            <td>Installing ArgoCD and connecting your first Git repository</td>
+            <td>Managing multi-environment deployments with ArgoCD ApplicationSets</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 19</td>
+            <td>Building container images in CI and pushing to a registry</td>
+            <td>Triggering GitOps reconciliation from a CI pipeline with image update automation</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 20</td>
+            <td>Implementing canary deployments with Flagger and Flux</td>
+            <td>Automating rollbacks on metric failures with Flagger analysis</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>11. Pod Security</h3>
+        <p class="section-desc">Harden workloads, drop privileges, and enforce security standards cluster-wide.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 21</td>
+            <td>Configuring security contexts for Pods and containers in Kubernetes</td>
+            <td>Hardening workloads with read-only filesystems and non-root users</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 22</td>
+            <td>Introduction to Pod Security Admission and the three built-in policy levels</td>
+            <td>Enforcing Pod Security Standards across namespaces with labels and exceptions</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 23</td>
+            <td>Dropping Linux capabilities from Kubernetes workloads</td>
+            <td>Restricting syscalls with Seccomp profiles in Kubernetes</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 24</td>
+            <td>Applying AppArmor profiles to Kubernetes Pods</td>
+            <td>Enforcing SELinux labels on Pods and volumes in Kubernetes</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 25</td>
+            <td>Auditing workloads for Pod Security Standard violations with kubectl</td>
+            <td>Migrating from PodSecurityPolicy to Pod Security Admission</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>12. Service Mesh</h3>
+        <p class="section-desc">Encrypt, observe, and control service-to-service traffic with Istio and Linkerd.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 26</td>
+            <td>Introduction to service mesh concepts and architecture in Kubernetes</td>
+            <td>Choosing between Istio and Linkerd for your Kubernetes cluster</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 27</td>
+            <td>Installing Istio on a Kubernetes cluster with the Istio Operator</td>
+            <td>Configuring traffic management with Istio VirtualServices and DestinationRules</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 28</td>
+            <td>Enabling mutual TLS (mTLS) between services with Istio PeerAuthentication</td>
+            <td>Managing mTLS certificates and SPIFFE identities with Istio</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 29</td>
+            <td>Installing and meshing workloads with Linkerd</td>
+            <td>Securing service-to-service communication with Linkerd mTLS and authorization policies</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 30</td>
+            <td>Visualizing service traffic and latency with Istio and Kiali</td>
+            <td>Implementing traffic shifting and fault injection for resilience testing</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>13. Ingress &amp; Gateway API</h3>
+        <p class="section-desc">Route, secure, and manage external traffic into your cluster.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 31</td>
+            <td>Routing external traffic into Kubernetes with Ingress resources</td>
+            <td>Configuring TLS termination and host-based routing with Ingress</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 32</td>
+            <td>Installing and configuring the NGINX Ingress Controller in Kubernetes</td>
+            <td>Rate limiting and access control with NGINX Ingress annotations</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 33</td>
+            <td>Introduction to the Kubernetes Gateway API and how it replaces Ingress</td>
+            <td>Configuring HTTPRoutes and TLSRoutes with the Gateway API</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 34</td>
+            <td>Splitting traffic across backends with Gateway API weighted routing</td>
+            <td>Securing Gateway API routes with ReferenceGrants and policy attachments</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 35</td>
+            <td>Migrating from Ingress to the Kubernetes Gateway API</td>
+            <td>Running Gateway API in production with observability and rate limiting</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>14. Logging</h3>
+        <p class="section-desc">Collect, enrich, and query logs from every corner of your cluster.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 36</td>
+            <td>Understanding Kubernetes logging architecture and log sources</td>
+            <td>Collecting container logs with a DaemonSet-based log forwarder</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 37</td>
+            <td>Installing and configuring Fluentd as a log collector in Kubernetes</td>
+            <td>Parsing, filtering, and routing logs to multiple outputs with Fluentd</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 38</td>
+            <td>Setting up Grafana Loki for log aggregation in Kubernetes</td>
+            <td>Querying and alerting on logs with LogQL and Grafana dashboards</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 39</td>
+            <td>Emitting structured JSON logs from Kubernetes workloads</td>
+            <td>Enriching logs with Kubernetes metadata using Fluent Bit</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 40</td>
+            <td>Enabling and configuring Kubernetes API server audit logging</td>
+            <td>Forwarding and analysing audit logs with Fluentd and Loki</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>15. Multitenancy</h3>
+        <p class="section-desc">Isolate teams, enforce resource boundaries, and onboard tenants at scale.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 41</td>
+            <td>Designing namespace boundaries for multitenancy in Kubernetes</td>
+            <td>Enforcing namespace isolation with NetworkPolicy and RBAC</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 42</td>
+            <td>Setting resource quotas to limit consumption per namespace in Kubernetes</td>
+            <td>Monitoring and alerting on ResourceQuota usage across tenants</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 43</td>
+            <td>Defining default resource requests and limits with LimitRange</td>
+            <td>Combining LimitRange and ResourceQuota for predictable tenant workloads</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 44</td>
+            <td>Automating tenant namespace provisioning with a Kubernetes Operator</td>
+            <td>Bootstrapping tenant RBAC, quotas, and policies with GitOps</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 45</td>
+            <td>Managing namespace hierarchies with the Hierarchical Namespace Controller</td>
+            <td>Propagating policies and quotas across child namespaces with HNC</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section-block">
+      <div class="section-header">
+        <h3>16. Backup &amp; Disaster Recovery</h3>
+        <p class="section-desc">Protect your cluster state, automate backups, and recover with confidence.</p>
+      </div>
+      <table class="pairs-table">
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Part 1</th>
+            <th>Part 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 46</td>
+            <td>Understanding Kubernetes backup strategies and what needs to be backed up</td>
+            <td>Installing and configuring Velero for cluster backup in Kubernetes</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 47</td>
+            <td>Creating on-demand and scheduled backups of namespaces with Velero</td>
+            <td>Backing up persistent volumes with Velero and CSI volume snapshots</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 48</td>
+            <td>Restoring namespaces and resources from a Velero backup</td>
+            <td>Cross-cluster restore with Velero for disaster recovery</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 49</td>
+            <td>Backing up and restoring etcd in a self-managed Kubernetes cluster</td>
+            <td>Automating etcd snapshots and validating restore integrity</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 50</td>
+            <td>Testing disaster recovery with simulated cluster failures and Velero restores</td>
+            <td>Building a disaster recovery runbook for Kubernetes platform teams</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 51</td>
+            <td>Configuring Velero with AWS S3 as a backup storage location</td>
+            <td>Storing Velero backups in Azure Blob Storage and Google Cloud Storage</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 52</td>
+            <td>Setting backup schedules and retention policies with Velero</td>
+            <td>Managing backup lifecycle and cleaning up expired backups automatically</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 53</td>
+            <td>Centralising backups from multiple clusters into a single Velero storage location</td>
+            <td>Migrating workloads between clusters using Velero backup and restore</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 54</td>
+            <td>Encrypting Velero backups at rest with server-side encryption</td>
+            <td>Securing Velero credentials and storage access with IAM roles and IRSA</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+          <tr class="status-coming-soon">
+            <td>Pair 55</td>
+            <td>Monitoring Velero backup status with Prometheus metrics and alerts</td>
+            <td>Validating backup completeness and integrity with automated restore tests</td>
+            <td>
+              <span class="badge coming-soon">🔜 Coming Soon</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+
+  </div>
+</section>
+
+
+<section class="subscribe" id="subscribe">
+  <div class="container">
+    <h2>Stay ahead in DevSecOps and CI/CD</h2>
+    <p>New pairs drop every week. Subscribe to get notified — no noise, just deep technical content.</p>
+    <form class="subscribe-form" action="/subscribe" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+    <div class="social-links">
+      <a href="https://linkedin.com/company/pipelinecraft" target="_blank">LinkedIn</a>
+      <a href="https://github.com/pipelinecraft" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 PipelineCraft.io · DevSecOps · CI/CD · Cloud Native Engineering</p>
+      <p class="tagline">Built by practitioners, for practitioners.</p>
+      <div class="footer-links">
+        <a href="https://github.com/pipelinecraft" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/company/pipelinecraft" target="_blank">LinkedIn</a>
+        <a href="mailto:hello@pipelinecraft.io">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

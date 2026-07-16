@@ -1,8 +1,4 @@
-﻿---
-title: "About"
-description: "About DeployCraft.io — a long-term platform for Kubernetes documentation, DevSecOps tutorials, and CI/CD coverage."
-weight: 7
----
+﻿
 
 ## About DeployCraft.io
 

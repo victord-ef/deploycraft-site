@@ -21,4 +21,4 @@ Every tutorial is structured as a linked two-part series — Part 1 builds the f
 
 ## Contact
 
-hello@deploycraft.io
+support@deploycraft.io

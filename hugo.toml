@@ -1,13 +1,13 @@
-baseURL = "https://pipelinecraft.io/"
+baseURL = "https://deploycraft.io/"
 languageCode = "en-us"
-title = "PipelineCraft.io"
+title = "DeployCraft.io"
 
 [params]
   description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
-  author = "PipelineCraft.io"
-  email = "hello@pipelinecraft.io"
-  github = "https://github.com/pipelinecraft"
-  linkedin = "https://linkedin.com/company/pipelinecraft"
+  author = "DeployCraft.io"
+  email = "hello@deploycraft.io"
+  github = "https://github.com/victord-ef"
+  linkedin = "https://linkedin.com/company/deploycraft"
 
 [markup]
   [markup.goldmark]
@@ -18,10 +18,3 @@ title = "PipelineCraft.io"
   tag = "tags"
   category = "categories"
   series = "series"
-
-[params]
-  description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
-  author = "DeployCraft.io"
-  email = "hello@deploycraft.io"
-  github = "https://github.com/victord-ef"
-  linkedin = "https://linkedin.com/company/deploycraft"

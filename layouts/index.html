@@ -11,11 +11,6 @@
       Every topic is a linked two-part series — Part 1 builds the foundation,
       Part 2 takes it to production.
     </p>
-    <div class="hero-stats">
-      <div class="stat"><span>65</span><p>Pairs</p></div>
-      <div class="stat"><span>130</span><p>Posts</p></div>
-      <div class="stat"><span>17</span><p>Sections</p></div>
-    </div>
     <div class="hero-cta">
       <a href="/tutorials" class="btn-primary">Browse Tutorials →</a>
       <a href="/docs" class="btn-secondary">Read the Docs ↓</a>
@@ -28,7 +23,7 @@
   <div class="container">
     <h2>What we cover</h2>
     <div class="topics-grid">
-      {{ range .Params.topics }}
+      {{ range site.Data.topics.topics }}
       <div class="topic-card">
         <span class="topic-icon">{{ .icon }}</span>
         <h3>{{ .title }}</h3>
@@ -52,52 +47,40 @@
   </div>
 </section>
 
-<!-- TUTORIAL SERIES -->
-<section class="sections" id="sections">
+<!-- PUBLISHED TUTORIALS -->
+{{ $tutorials := where site.RegularPages "Section" "tutorials" }}
+{{ if $tutorials }}
+<section class="tutorials" id="tutorials">
   <div class="container">
-    <h2>All Tutorial Series</h2>
-
-    {{ range .Params.sections }}
-    <div class="section-block">
-      <div class="section-header">
-        <h3>{{ .number }}. {{ .title }}</h3>
-        <p class="section-desc">{{ .description }}</p>
+    <h2>Tutorials</h2>
+    {{ range $tutorials.GroupByParam "series" }}
+    <div class="series-group">
+      <h3>{{ .Key }}</h3>
+      <div class="tutorial-list">
+        {{ range .Pages.ByParam "part" }}
+        <div class="tutorial-item">
+          <span class="part-label">Part {{ .Params.part }}</span>
+          <div class="tutorial-info">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <p>{{ .Description }}</p>
+          </div>
+        </div>
+        {{ end }}
       </div>
-      <table class="pairs-table">
-        <thead>
-          <tr>
-            <th>Pair</th>
-            <th>Part 1</th>
-            <th>Part 2</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ range .pairs }}
-          <tr class="status-{{ .status }}">
-            <td>{{ .pair }}</td>
-            <td>{{ if .part1url }}<a href="{{ .part1url }}">{{ .part1 }}</a>{{ else }}{{ .part1 }}{{ end }}</td>
-            <td>{{ if .part2url }}<a href="{{ .part2url }}">{{ .part2 }}</a>{{ else }}{{ .part2 }}{{ end }}</td>
-            <td>
-              {{ if eq .status "published" }}<span class="badge published">✅ Published</span>
-              {{ else if eq .status "partial" }}<span class="badge partial">🔄 Part 1 Live</span>
-              {{ else }}<span class="badge coming-soon">🔜 Coming Soon</span>{{ end }}
-            </td>
-          </tr>
-          {{ end }}
-        </tbody>
-      </table>
     </div>
     {{ end }}
-
+    <div class="tutorials-cta">
+      <a href="/tutorials" class="btn-secondary">View all tutorials →</a>
+    </div>
   </div>
 </section>
+{{ end }}
 
 <!-- SUBSCRIBE -->
 <section class="subscribe" id="subscribe">
   <div class="container">
     <h2>Stay ahead in DevSecOps and CI/CD</h2>
-    <p>New pairs drop every week. Subscribe to get notified — no noise, just deep technical content.</p>
+    <p>New tutorials drop regularly. Subscribe to get notified — no noise, just deep technical content.</p>
     <form class="subscribe-form" action="/subscribe" method="POST">
       <input type="email" name="email" placeholder="your@email.com" required />
       <button type="submit" class="btn-primary">Subscribe</button>

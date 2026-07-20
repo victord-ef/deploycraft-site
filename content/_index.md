@@ -1,6 +1,38 @@
 ---
-title: "Kubernetes Blog Series"
-description: "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
+title: "DeployCraft.io"
+description: "Production-grade DevSecOps and CI/CD knowledge for Kubernetes practitioners — tutorials, docs, labs, and code snippets."
+
+topics:
+
+  - icon: "🛡️"
+    title: "Kubernetes Security & Hardening"
+    description: "Pod security, RBAC, admission webhooks, secrets management, and workload isolation — from basics to production enforcement."
+    url: "/docs/security"
+
+  - icon: "🔁"
+    title: "GitOps with ArgoCD & Helm"
+    description: "Declarative delivery with Flux, ArgoCD, Helm, and Kustomize. Multi-environment management, canary releases, and automated rollbacks."
+    url: "/tutorials"
+
+  - icon: "📦"
+    title: "CI/CD with GitHub Actions"
+    description: "Pipeline design, container image builds, registry integration, and automated GitOps reconciliation triggered from CI."
+    url: "/docs/github-actions"
+
+  - icon: "📐"
+    title: "Infrastructure as Code"
+    description: "Terraform and Ansible patterns for provisioning, configuring, and managing cloud-native infrastructure at scale."
+    url: "/docs/terraform"
+
+  - icon: "🐧"
+    title: "Linux for Secure Systems"
+    description: "Linux fundamentals, hardening techniques, and system administration skills that underpin every container and cluster."
+    url: "/docs/linux"
+
+  - icon: "🔍"
+    title: "Red/Blue Team Toolchains"
+    description: "Pipeline security, supply chain integrity, secret scanning, SAST/DAST integration, and DevSecOps tooling for attack and defence."
+    url: "/docs/cicd-pipeline-security"
 
 sections:
 
@@ -10,9 +42,9 @@ sections:
     pairs:
       - pair: "Pair 1"
         part1: "Building a custom metrics exporter in Go"
-        part1url: "/blog/custom-metrics-exporter-kubernetes"
+        part1url: "/tutorials/custom-metrics-exporter-kubernetes"
         part2: "Connecting custom metrics to the HorizontalPodAutoscaler"
-        part2url: "/blog/connecting-custom-metrics-hpa"
+        part2url: "/tutorials/connecting-custom-metrics-hpa"
         status: published
       - pair: "Pair 4"
         part1: "Deploying KEDA for event-driven autoscaling"
@@ -25,9 +57,9 @@ sections:
     pairs:
       - pair: "Pair 2"
         part1: "Writing a custom admission webhook in Kubernetes"
-        part1url: "/blog/custom-admission-webhook-kubernetes"
+        part1url: "/tutorials/custom-admission-webhook-kubernetes"
         part2: "Enforcing policy with an admission webhook"
-        part2url: "/blog/enforcing-policy-admission-webhook"
+        part2url: "/tutorials/enforcing-policy-admission-webhook"
         status: published
 
   - number: 3
@@ -36,7 +68,7 @@ sections:
     pairs:
       - pair: "Pair 3"
         part1: "Adopting the PlacementDecision API for multi-cluster scheduling"
-        part1url: "/blog/placement-decision-api-adoption-guide"
+        part1url: "/tutorials/placement-decision-api-adoption-guide"
         part2: "Federating workloads across clusters using PlacementDecision"
         status: partial
 

@@ -3,21 +3,39 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <p class="hero-eyebrow">Kubernetes Blog Series</p>
-    <h1>Master Kubernetes —<br>From Custom Metrics to<br>Production-Ready Platforms</h1>
+    <p class="hero-eyebrow">DevOps · DevSecOps · Cloud Native Engineering</p>
+    <h1>Production-grade knowledge<br>for Kubernetes practitioners</h1>
     <p class="hero-sub">
-      PipelineCraft.io brings you in-depth, hands-on DevSecOps and CI/CD coverage.
+      DeployCraft.io covers Kubernetes security, GitOps, CI/CD pipelines,
+      Infrastructure as Code, Linux administration, and DevSecOps toolchains.
       Every topic is a linked two-part series — Part 1 builds the foundation,
       Part 2 takes it to production.
     </p>
     <div class="hero-stats">
-      <div class="stat"><span>55</span><p>Pairs</p></div>
-      <div class="stat"><span>110</span><p>Posts</p></div>
-      <div class="stat"><span>16</span><p>Sections</p></div>
+      <div class="stat"><span>65</span><p>Pairs</p></div>
+      <div class="stat"><span>130</span><p>Posts</p></div>
+      <div class="stat"><span>17</span><p>Sections</p></div>
     </div>
     <div class="hero-cta">
-      <a href="/blog/custom-metrics-exporter-kubernetes" class="btn-primary">Start with Part 1 →</a>
-      <a href="#sections" class="btn-secondary">Browse All Sections ↓</a>
+      <a href="/tutorials" class="btn-primary">Browse Tutorials →</a>
+      <a href="/docs" class="btn-secondary">Read the Docs ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC AREAS -->
+<section class="topics" id="topics">
+  <div class="container">
+    <h2>What we cover</h2>
+    <div class="topics-grid">
+      {{ range .Params.topics }}
+      <div class="topic-card">
+        <span class="topic-icon">{{ .icon }}</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+        {{ if .url }}<a href="{{ .url }}" class="topic-link">Explore →</a>{{ end }}
+      </div>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -26,18 +44,18 @@
 <section class="about">
   <div class="container">
     <p>
-      At <strong>PipelineCraft.io</strong>, we believe deep CI/CD and DevSecOps knowledge
-      should be accessible, practical, and progressive. This series is not a collection of
-      isolated tutorials — every pair of posts is designed to take you from concept to
-      implementation, with each section building skills you will use in real production environments.
+      At <strong>DeployCraft.io</strong>, we believe deep DevSecOps and CI/CD knowledge
+      should be accessible, practical, and progressive. Content is not a collection of
+      isolated tutorials — every pair of posts takes you from concept to implementation,
+      with each section building skills you will use in real production environments.
     </p>
   </div>
 </section>
 
-<!-- SERIES SECTIONS -->
+<!-- TUTORIAL SERIES -->
 <section class="sections" id="sections">
   <div class="container">
-    <h2>All Sections</h2>
+    <h2>All Tutorial Series</h2>
 
     {{ range .Params.sections }}
     <div class="section-block">

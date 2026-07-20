@@ -1,6 +1,8 @@
 baseURL = "https://deploycraft.io/"
 languageCode = "en-us"
 title = "DeployCraft.io"
+enableRobotsTXT = true
+canonifyURLs = true
 
 [params]
   description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
@@ -9,12 +11,26 @@ title = "DeployCraft.io"
   github = "https://github.com/victord-ef"
   linkedin = "https://linkedin.com/company/deploycraft"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
 [taxonomies]
   tag = "tags"
   category = "categories"
   series = "series"
+
+[outputs]
+  home    = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page    = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style       = "dracula"
+    lineNos     = false
+    codeFences  = true
+    guessSyntax = true
+
+[minify]
+  disableXML   = false
+  minifyOutput = true

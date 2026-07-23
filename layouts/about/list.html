@@ -1,0 +1,54 @@
+{{ define "main" }}
+<div class="about-page">
+  <div class="container">
+
+    <header class="about-page-header">
+      <span class="section-eyebrow">About</span>
+      <h1>DevSecOps practitioner.<br>Writing from the field.</h1>
+      <p class="about-lead">
+        Nearly a decade across the full SDLC — software engineering, quality operations, and security.
+        DeployCraft.io is the resource I needed and could not find.
+      </p>
+    </header>
+
+    <div class="about-page-body">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+      <aside class="about-sidebar">
+        <div class="credentials-card">
+          <h4>Credentials</h4>
+          <ul>
+            <li>B.Sc Software Engineering &amp; Management</li>
+            <li>M.Sc Quality &amp; Operations Management</li>
+            <li>Cyber Security (postgraduate)</li>
+            <li>DevSecOps practitioner since 2017</li>
+          </ul>
+        </div>
+        <div class="credentials-card">
+          <h4>Topics covered</h4>
+          <ul>
+            <li>Kubernetes &amp; Cloud Native</li>
+            <li>CI/CD Pipeline Security</li>
+            <li>GitOps &amp; IaC</li>
+            <li>DevSecOps toolchain</li>
+            <li>Supply chain security</li>
+            <li>Red &amp; blue team engineering</li>
+          </ul>
+        </div>
+        <div class="credentials-card">
+          <h4>Contact</h4>
+          <p style="font-size:0.875rem;color:var(--muted);margin:0;">
+            <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+          </p>
+          <div style="display:flex;gap:0.75rem;margin-top:0.75rem;">
+            <a href="{{ .Site.Params.linkedin }}" target="_blank" style="font-size:0.875rem;">LinkedIn</a>
+            <a href="{{ .Site.Params.github }}" target="_blank" style="font-size:0.875rem;">GitHub</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>
+{{ end }}

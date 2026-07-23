@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Free resources</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .RegularPages }}
+    <div class="download-grid">
+      {{ range .RegularPages }}
+      <div class="download-card">
+        <div class="download-meta">
+          {{ with .Params.format }}<span class="format-badge">{{ . | upper }}</span>{{ end }}
+          {{ with .Params.size }}<span class="download-size">{{ . }}</span>{{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.file }}<a href="{{ . }}" class="btn-secondary" style="margin-top:1.25rem;display:inline-block;padding:0.5rem 1.25rem;font-size:0.9rem;">Download ↓</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">📦</span>
+      <h2>Downloads coming soon</h2>
+      <p>Free e-books, cheat sheets, architecture diagrams, and reusable templates — written from production experience and structured for immediate use.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

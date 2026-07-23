@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Hands-on learning</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .RegularPages }}
+    <div class="lab-grid">
+      {{ range .RegularPages }}
+      <a href="{{ .RelPermalink }}" class="lab-card">
+        <div class="lab-meta">
+          {{ with .Params.difficulty }}<span class="lab-badge lab-{{ . | lower }}">{{ . }}</span>{{ end }}
+          {{ with .Params.duration }}<span class="lab-duration">{{ . }}</span>{{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.tools }}
+        <div class="lab-tools">
+          {{ range . }}<span class="tool-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">⚗️</span>
+      <h2>Labs launching soon</h2>
+      <p>Hands-on lab exercises with real cluster environments — covering Kubernetes hardening, CI/CD pipeline attacks, and DevSecOps scenarios end to end.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

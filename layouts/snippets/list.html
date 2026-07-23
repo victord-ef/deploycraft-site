@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Copy-paste ready</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .RegularPages }}
+    <div class="snippet-grid">
+      {{ range .RegularPages }}
+      <a href="{{ .RelPermalink }}" class="snippet-card">
+        {{ with .Params.lang }}<span class="lang-badge">{{ . }}</span>{{ end }}
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.tags }}
+        <div class="tag-list" style="margin-top:0.75rem;">
+          {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">📋</span>
+      <h2>Snippets coming soon</h2>
+      <p>Reusable YAML manifests, shell one-liners, Terraform modules, and configuration examples — each with context on when and why to use them.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

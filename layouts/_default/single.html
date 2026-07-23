@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article class="single">
+  <div class="container">
+
+    <header class="post-header">
+      {{ with .Params.series }}<span class="series-badge">{{ . }}</span>{{ end }}
+      {{ with .Params.part }}<span class="part-badge">Part {{ . }}</span>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+      <div class="post-meta">
+        {{ if not .Date.IsZero }}<time>{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
+        {{ with .Params.tags }}
+        <div class="tag-list">
+          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="post-layout">
+      {{ if .Params.toc }}
+      <aside class="toc">
+        <h4>Contents</h4>
+        {{ .TableOfContents }}
+      </aside>
+      {{ end }}
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </div>
+
+    {{ if or .PrevInSection .NextInSection }}
+    <nav class="post-nav">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="prev">← {{ .Title }}</a>
+      {{ end }}
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="next">{{ .Title }} →</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+
+  </div>
+</article>
+{{ end }}

@@ -10,6 +10,7 @@ canonifyURLs = true
   email = "support@deploycraft.io"
   github = "https://github.com/victord-ef"
   linkedin = "https://linkedin.com/company/deploycraft"
+  formspree = ""
 
 [taxonomies]
   tag = "tags"

@@ -1218,6 +1218,139 @@ nav a:hover { color: var(--text); text-decoration: none; }
 
 .about-sidebar { position: sticky; top: 5rem; }
 
+/* ─── Contact Modal ─────────────────────────────── */
+.contact-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.contact-overlay.is-open { display: flex; }
+
+.contact-modal {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  animation: modal-in 0.18s ease;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.contact-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.contact-close:hover { color: var(--text); }
+
+.contact-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.contact-intro {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+  resize: vertical;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--accent); }
+
+.contact-submit {
+  width: 100%;
+  margin-top: 0.4rem;
+  justify-content: center;
+}
+.contact-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.contact-success {
+  text-align: center;
+  padding: 2.5rem 0 1rem;
+}
+
+.contact-success-icon {
+  display: block;
+  font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 0.75rem;
+}
+
+.contact-success p {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.contact-error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.contact-error a { color: var(--accent); }
+
 /* ─── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .hero { padding: 4rem 0 3rem; }

@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="theme-color" content="#111827" />
   <link rel="canonical" href="{{ .Permalink }}" />
+  <link rel="preconnect" href="https://static.cloudflareinsights.com" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
@@ -74,8 +76,8 @@
 
   {{ partial "contact-modal.html" . }}
 
-  <script src="/js/copy.js"></script>
-  <script src="/js/contact.js"></script>
+  <script defer src="/js/copy.js"></script>
+  <script defer src="/js/contact.js"></script>
 
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "2ca1146d061e4d1ea6e4754d74087104"}'></script>

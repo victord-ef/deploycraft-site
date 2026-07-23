@@ -1,0 +1,59 @@
+{{ define "main" }}
+<section class="list-page">
+  <div class="container">
+
+    <header class="list-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="list-desc">{{ . }}</p>{{ end }}
+      {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
+    </header>
+
+    {{/* Subsections — e.g. /docs/ showing kubernetes, github-actions, etc. */}}
+    {{ if .Sections }}
+    <div class="page-grid">
+      {{ range .Sections }}
+      <a href="{{ .RelPermalink }}" class="page-card">
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ $count := len .RegularPages }}
+        {{ if $count }}<span class="card-count">{{ $count }} {{ if eq $count 1 }}article{{ else }}articles{{ end }}</span>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{/* Regular pages */}}
+    {{ if .RegularPages }}
+      {{ if eq .Section "tutorials" }}
+        {{ range .RegularPages.GroupByParam "series" }}
+        <div class="series-group">
+          <h2>{{ .Key }}</h2>
+          <div class="tutorial-list">
+            {{ range .Pages.ByParam "part" }}
+            <div class="tutorial-item">
+              <span class="part-label">Part {{ .Params.part }}</span>
+              <div class="tutorial-info">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{ with .Description }}<p>{{ . }}</p>{{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      {{ else }}
+      <div class="page-grid">
+        {{ range .RegularPages }}
+        <a href="{{ .RelPermalink }}" class="page-card">
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+          {{ if not .Date.IsZero }}<time>{{ .Date.Format "Jan 2, 2006" }}</time>{{ end }}
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="list-page">
+  <div class="container">
+
+    <header class="list-header">
+      <h1>{{ .Title }}</h1>
+      <p class="list-desc">{{ len .Pages }} {{ if eq (len .Pages) 1 }}article{{ else }}articles{{ end }}</p>
+    </header>
+
+    <div class="page-grid">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="page-card">
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ if not .Date.IsZero }}<time>{{ .Date.Format "Jan 2, 2006" }}</time>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+{{ end }}

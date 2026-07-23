@@ -3,17 +3,49 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <div class="hero-logo">
+      <span class="hl-deploy">Deploy</span><span class="hl-craft">Craft</span><span class="hl-io">.io</span>
+    </div>
     <p class="hero-eyebrow">DevOps · DevSecOps · Cloud Native Engineering</p>
-    <h1>Production-grade knowledge<br>for Kubernetes practitioners</h1>
+    <h1>Built from the field.<br>Not from the docs.</h1>
     <p class="hero-sub">
-      DeployCraft.io covers Kubernetes security, GitOps, CI/CD pipelines,
-      Infrastructure as Code, Linux administration, and DevSecOps toolchains.
-      Every topic is a linked two-part series — Part 1 builds the foundation,
-      Part 2 takes it to production.
+      DeployCraft.io is written by a practitioner with nearly a decade across the full
+      SDLC — software engineering, quality operations, and cybersecurity. Every guide
+      covers Kubernetes, CI/CD, GitOps, Infrastructure as Code, and DevSecOps from
+      first principles to production deployment.
     </p>
     <div class="hero-cta">
       <a href="/tutorials" class="btn-primary">Browse Tutorials →</a>
       <a href="/docs" class="btn-secondary">Read the Docs ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="for-section">
+  <div class="container">
+    <h2>Who this is for</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <span class="for-icon">⚙️</span>
+        <h3>Platform & DevOps engineers</h3>
+        <p>Running Kubernetes in production and looking for depth beyond the official docs — security hardening, autoscaling, multi-cluster ops, and GitOps delivery.</p>
+      </div>
+      <div class="for-card">
+        <span class="for-icon">🔐</span>
+        <h3>DevSecOps practitioners</h3>
+        <p>Responsible for securing CI/CD pipelines, hardening workloads, and integrating security tooling across the software delivery lifecycle.</p>
+      </div>
+      <div class="for-card">
+        <span class="for-icon">📈</span>
+        <h3>Engineers levelling up</h3>
+        <p>Software engineers transitioning into platform, infrastructure, or security roles — building the practical knowledge that certifications alone do not cover.</p>
+      </div>
+      <div class="for-card">
+        <span class="for-icon">🎯</span>
+        <h3>Security professionals</h3>
+        <p>Penetration testers, red teamers, and security engineers who need to understand the engineering side — pipeline attack surfaces, supply chain vulnerabilities, and how Kubernetes clusters are built and hardened.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -38,12 +70,38 @@
 <!-- ABOUT -->
 <section class="about">
   <div class="container">
-    <p>
-      At <strong>DeployCraft.io</strong>, we believe deep DevSecOps and CI/CD knowledge
-      should be accessible, practical, and progressive. Content is not a collection of
-      isolated tutorials — every pair of posts takes you from concept to implementation,
-      with each section building skills you will use in real production environments.
-    </p>
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Why DeployCraft.io exists</h2>
+        <p>
+          Most DevSecOps content is either too shallow to apply in production or too theoretical to ship.
+          After years working across development, quality operations, and security — I built DeployCraft.io
+          because the content I needed did not exist in one place.
+        </p>
+        <p>
+          Every guide is written from real-world experience: the same problems encountered hardening
+          Kubernetes clusters, securing CI/CD pipelines, managing infrastructure at scale, and assessing
+          systems from both the engineering and security perspective. Content spans the full spectrum —
+          cluster hardening, RBAC, admission webhooks, and supply chain integrity through to red and blue
+          team toolchains, SAST/DAST integration, secret management, and pipeline attack surfaces.
+        </p>
+        <p>
+          Content is structured as linked pairs — Part 1 builds the foundation, Part 2 takes it to
+          production — so you always leave with something deployable, not just something readable.
+          Whether you are building, securing, or breaking systems, the goal is the same: depth you can
+          actually use.
+        </p>
+        <div class="author-card">
+          <div class="author-info">
+            <strong>The author</strong>
+            <p>
+              B.Sc Software Engineering · M.Sc Quality &amp; Operations Management · Cyber Security (postgraduate) ·
+              DevSecOps practitioner since 2017 across the full SDLC.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -79,8 +137,8 @@
 <!-- SUBSCRIBE -->
 <section class="subscribe" id="subscribe">
   <div class="container">
-    <h2>Stay ahead in DevSecOps and CI/CD</h2>
-    <p>New tutorials drop regularly. Subscribe to get notified — no noise, just deep technical content.</p>
+    <h2>Join engineers building more secure systems</h2>
+    <p>New production-focused content drops regularly. No noise — just deep technical guides written by a practitioner, for practitioners.</p>
     <form class="subscribe-form" action="/subscribe" method="POST">
       <input type="email" name="email" placeholder="your@email.com" required />
       <button type="submit" class="btn-primary">Subscribe</button>

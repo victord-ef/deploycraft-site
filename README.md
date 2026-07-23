@@ -5,8 +5,10 @@ Source for [deploycraft.io](https://deploycraft.io) — a technical platform cov
 ## Stack
 
 - **Static site generator** — [Hugo](https://gohugo.io/) v0.133.0 extended
-- **Hosting** — [Cloudflare Pages](https://pages.cloudflare.com/)
 - **Source control** — GitHub (`main` is production, `dev` is the working branch)
+- **Hosting & CDN** — Cloudflare Pages
+- **Email & Workspace** — Google Workspace
+- **Domain registrar** — GoDaddy
 
 ## Project structure
 

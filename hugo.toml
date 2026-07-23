@@ -7,7 +7,7 @@ canonifyURLs = true
 [params]
   description = "In-depth DevSecOps and CI/CD coverage for Kubernetes practitioners"
   author = "DeployCraft.io"
-  email = "hello@deploycraft.io"
+  email = "support@deploycraft.io"
   github = "https://github.com/victord-ef"
   linkedin = "https://linkedin.com/company/deploycraft"
 

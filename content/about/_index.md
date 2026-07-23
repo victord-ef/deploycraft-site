@@ -23,9 +23,3 @@ Every piece of content on this platform comes from real-world experience:
 - **Security engineering** — workload isolation, threat modelling, and content for penetration testers and red teamers who need to understand how these systems are built and where they break
 
 Content is structured as linked pairs — Part 1 builds the foundation, Part 2 takes it to production. The goal is always something deployable, not just something readable.
-
-## Why this platform
-
-The best technical writing comes from people who have had to make the thing work in production, under pressure, with real constraints. That is the standard I hold this content to.
-
-If you have worked in this space for any length of time, you know that documentation tells you what the tool does, but not what breaks when you combine it with three other tools in a pipeline at 2am. That is the gap DeployCraft.io is built to fill.

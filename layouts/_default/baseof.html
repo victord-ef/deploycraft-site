@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ .Site.Params.description }}" />
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/og-default.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}images/og-default.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <title>{{ .Title }} | {{ .Site.Title }}</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -40,5 +58,6 @@
     </div>
   </footer>
 
+  <script src="/js/copy.js"></script>
 </body>
 </html>

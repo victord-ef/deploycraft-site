@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#111827"/>
+  <text x="50%" y="52%" dominant-baseline="central" text-anchor="middle"
+    font-family="'Segoe UI',system-ui,sans-serif"
+    font-weight="800" font-size="13" fill="#3b82f6">DC</text>
+</svg>

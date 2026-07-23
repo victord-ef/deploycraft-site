@@ -137,10 +137,15 @@
   <div class="container">
     <h2>Join engineers building more secure systems</h2>
     <p>New production-focused content drops regularly. No noise — just deep technical guides written by a practitioner, for practitioners.</p>
-    <form class="subscribe-form" action="/subscribe" method="POST">
+    <form class="subscribe-form" id="subscribe-form"
+      data-formspree="{{ .Site.Params.formspree_subscribe }}"
+      data-email="{{ .Site.Params.email }}">
+      <input type="hidden" name="_subject" value="New subscriber — DeployCraft.io" />
       <input type="email" name="email" placeholder="your@email.com" required />
-      <button type="submit" class="btn-primary">Subscribe</button>
+      <button type="submit" class="btn-primary" id="subscribe-btn">Subscribe</button>
     </form>
+    <p class="subscribe-success" id="subscribe-success" hidden>✓ You're subscribed. More signal, no noise.</p>
+    <p class="subscribe-error" id="subscribe-error" hidden>Something went wrong — email <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a> directly.</p>
     <div class="social-links">
       <a href="{{ .Site.Params.linkedin }}" target="_blank">LinkedIn</a>
       <a href="{{ .Site.Params.github }}" target="_blank">GitHub</a>

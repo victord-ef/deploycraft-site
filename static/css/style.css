@@ -310,6 +310,21 @@ nav a:hover { color: var(--text); text-decoration: none; }
 
 .subscribe-form input:focus { border-color: var(--accent); }
 
+.subscribe-success {
+  color: var(--green);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-error {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-error a { color: var(--accent); }
+
 .social-links { display: flex; gap: 1.5rem; justify-content: center; }
 .social-links a { color: var(--muted); font-size: 0.9rem; }
 .social-links a:hover { color: var(--accent); }

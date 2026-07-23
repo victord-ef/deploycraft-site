@@ -75,3 +75,50 @@
     });
   }
 })();
+
+(function () {
+  const form = document.getElementById('subscribe-form');
+  const btn = document.getElementById('subscribe-btn');
+  const successEl = document.getElementById('subscribe-success');
+  const errorEl = document.getElementById('subscribe-error');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formspree = form.dataset.formspree;
+    const email = form.dataset.email;
+
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    if (formspree) {
+      try {
+        const res = await fetch(formspree, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.hidden = true;
+          successEl.hidden = false;
+        } else {
+          errorEl.hidden = false;
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        }
+      } catch (_) {
+        errorEl.hidden = false;
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+      }
+    } else {
+      const subscriberEmail = form.querySelector('input[type="email"]').value;
+      const subject = encodeURIComponent('New subscriber — DeployCraft.io');
+      const body = encodeURIComponent('New subscriber: ' + subscriberEmail);
+      window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+    }
+  });
+})();

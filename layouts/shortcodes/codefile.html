@@ -1,0 +1,6 @@
+{{ $file := .Get "file" }}
+{{ $lang := .Get "lang" | default "bash" }}
+<div class="code-block">
+  {{ with $file }}<div class="code-filename">{{ . }}</div>{{ end }}
+  {{ highlight (trim (string .Inner) "\n") $lang "" }}
+</div>

@@ -5,9 +5,9 @@ description: "DevSecOps practitioner since 2017. Writing from the field — not 
 
 ## Who I am
 
-I'm an engineer who has worked across every layer of the software delivery lifecycle — from writing application code, to building CI/CD infrastructure, to securing the systems that ship it.
+I'm an engineer who has worked across every layer of the software delivery lifecycle, from writing application code, to building CI/CD infrastructure, to securing the systems that ship it.
 
-My background spans software engineering, operations management, and cybersecurity. The work itself has ranged from development and quality engineering to platform operations and security assessment — across the full SDLC, since 2017.
+My background spans software engineering, operations management, and cybersecurity. The work itself has ranged from development and quality engineering to platform operations and security assessment, across the full SDLC, since 2017.
 
 
 ## What I cover

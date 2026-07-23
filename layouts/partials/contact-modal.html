@@ -1,0 +1,31 @@
+<div class="contact-overlay" id="contact-overlay" aria-hidden="true">
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-label="Contact form">
+    <button class="contact-close" id="contact-close" aria-label="Close">✕</button>
+    <h2>Get in touch</h2>
+    <p class="contact-intro">Send a message and I'll get back to you.</p>
+    <form class="contact-form" id="contact-form"
+      data-formspree="{{ .Site.Params.formspree }}"
+      data-email="{{ .Site.Params.email }}">
+      <div class="form-group">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" placeholder="Your message..." rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary contact-submit">Send message</button>
+    </form>
+    <div class="contact-success" id="contact-success" hidden>
+      <span class="contact-success-icon">✓</span>
+      <p>Message sent. I'll be in touch soon.</p>
+    </div>
+    <div class="contact-error" id="contact-error" hidden>
+      <p>Something went wrong. Email <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a> directly.</p>
+    </div>
+  </div>
+</div>

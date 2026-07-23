@@ -1,0 +1,25 @@
+<svg viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nodeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="craftGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon badge: pipeline nodes -->
+  <rect x="20" y="20" width="120" height="120" rx="26" fill="#111827"/>
+  <line x1="52" y1="108" x2="80" y2="80" stroke="#2d3a4f" stroke-width="5" stroke-linecap="round"/>
+  <line x1="80" y1="80" x2="108" y2="52" stroke="#2d3a4f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="52" cy="108" r="10" fill="url(#nodeGrad)"/>
+  <circle cx="80" cy="80" r="11" fill="url(#nodeGrad)"/>
+  <circle cx="108" cy="52" r="12" fill="url(#nodeGrad)"/>
+
+  <!-- Wordmark -->
+  <text x="170" y="98" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="52">
+    <tspan fill="#e2e8f0">deploy</tspan><tspan fill="url(#craftGrad3)">craft</tspan><tspan fill="#94a3b8" font-weight="600" font-size="40">.io</tspan>
+  </text>
+</svg>

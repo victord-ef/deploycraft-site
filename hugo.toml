@@ -11,6 +11,7 @@ canonifyURLs = true
   github = "https://github.com/victord-ef"
   linkedin = "https://linkedin.com/company/deploycraft"
   formspree = ""
+  formspree_subscribe = ""
 
 [taxonomies]
   tag = "tags"

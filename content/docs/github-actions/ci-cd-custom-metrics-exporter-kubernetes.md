@@ -2,6 +2,7 @@
 title: "Automate a Custom Metrics Exporter Deployment with GitHub Actions"
 description: "Build, push to GitHub Container Registry, and deploy a custom Prometheus metrics exporter to Kubernetes automatically on every push using GitHub Actions."
 weight: 10
+toc: true
 ---
 
 This guide automates the manual steps from

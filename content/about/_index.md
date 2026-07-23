@@ -9,7 +9,6 @@ I'm an engineer who has worked across every layer of the software delivery lifec
 
 My background spans software engineering, operations management, and cybersecurity. The work itself has ranged from development and quality engineering to platform operations and security assessment — across the full SDLC, since 2017.
 
-DeployCraft.io exists because the content I needed did not exist in one place. Most DevSecOps writing is either too shallow to apply in production, or too theoretical to ship. I built this platform to close that gap.
 
 ## What I cover
 

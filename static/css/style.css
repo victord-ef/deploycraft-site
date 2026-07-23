@@ -655,10 +655,11 @@ nav a:hover { color: var(--text); text-decoration: none; }
 }
 
 .post-content pre {
+  position: relative;
   background: #0d1117;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.25rem 4rem 1.25rem 1.25rem;
   overflow-x: auto;
   margin-bottom: 1.5rem;
   font-size: 0.875rem;
@@ -718,6 +719,103 @@ nav a:hover { color: var(--text); text-decoration: none; }
 .post-nav a { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
 .post-nav a:hover { color: var(--accent); text-decoration: none; }
 .post-nav .next { margin-left: auto; }
+
+/* ─── Copy Button ───────────────────────────────── */
+.copy-btn {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  background: var(--card-bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+.copy-btn.copied { color: var(--green); border-color: var(--green); }
+
+/* ─── Series Nav ─────────────────────────────────── */
+.series-nav {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.series-nav h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.series-nav-links { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.series-nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.series-nav-links a:hover { background: rgba(59,130,246,0.08); color: var(--text); text-decoration: none; }
+.series-nav-links a.active { background: rgba(59,130,246,0.1); color: var(--text); }
+
+.series-nav-links .part-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(59,130,246,0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.series-nav-links a.active .part-num { background: var(--accent); color: #fff; }
+.series-nav-links .part-title { font-size: 0.875rem; }
+
+/* ─── 404 Page ──────────────────────────────────── */
+.error-page {
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.error-code {
+  display: block;
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--border);
+  letter-spacing: -4px;
+  margin-bottom: 1rem;
+}
+
+.error-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.error-page p {
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+
+.error-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* ─── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {

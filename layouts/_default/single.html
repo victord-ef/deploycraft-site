@@ -17,6 +17,24 @@
       </div>
     </header>
 
+    {{ with .Params.series }}
+    {{ $series := . }}
+    {{ $seriesPages := where site.RegularPages "Params.series" $series }}
+    {{ if gt (len $seriesPages) 1 }}
+    <nav class="series-nav">
+      <h4>Series: {{ $series }}</h4>
+      <div class="series-nav-links">
+        {{ range $seriesPages.ByParam "part" }}
+        <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} class="active"{{ end }}>
+          <span class="part-num">Part {{ .Params.part }}</span>
+          <span class="part-title">{{ .Title }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </nav>
+    {{ end }}
+    {{ end }}
+
     <div class="post-layout">
       {{ if .Params.toc }}
       <aside class="toc">

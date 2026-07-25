@@ -1,0 +1,52 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Paired series · Part 1 builds the foundation · Part 2 goes to production</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .RegularPages }}
+
+    {{ range .RegularPages.GroupByParam "cluster" }}
+    <div class="tutorial-cluster">
+      <h2 class="cluster-heading">{{ .Key }}</h2>
+
+      {{ range .Pages.GroupByParam "series" }}
+      <div class="series-group">
+        <h3 class="series-heading">{{ .Key }}</h3>
+        <div class="tutorial-list">
+          {{ range .Pages.ByParam "part" }}
+          <div class="tutorial-item">
+            <span class="part-label">Part {{ .Params.part }}</span>
+            <div class="tutorial-info">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ with .Description }}<p>{{ . }}</p>{{ end }}
+            </div>
+            <div class="tutorial-meta">
+              {{ with .Params.difficulty }}<span class="lab-badge lab-{{ . | lower }}">{{ . }}</span>{{ end }}
+              {{ with .Params.duration }}<span class="lab-duration">{{ . }}</span>{{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+    </div>
+    {{ end }}
+
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">📚</span>
+      <h2>Tutorials launching soon</h2>
+      <p>Structured as linked pairs — Part 1 builds the foundation, Part 2 takes it to production. Covering Kubernetes, GitOps, security, service mesh, Kafka, and more.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

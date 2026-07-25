@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="single lab-single">
+  <div class="container">
+
+    <header class="post-header">
+      <a href="/labs" class="back-link">← Labs</a>
+      <div class="lab-header-meta">
+        {{ with .Params.difficulty }}<span class="lab-badge lab-{{ . | lower }}">{{ . }}</span>{{ end }}
+        {{ with .Params.duration }}<span class="lab-duration">{{ . }}</span>{{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+      <div class="post-meta">
+        {{ with .Params.tools }}
+        <div class="tag-list">
+          {{ range . }}<span class="tool-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        {{ with .Params.tags }}
+        <div class="tag-list">
+          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="post-layout">
+      {{ if .Params.toc }}
+      <aside class="toc">
+        <h4>Contents</h4>
+        {{ .TableOfContents }}
+      </aside>
+      {{ end }}
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </div>
+
+  </div>
+</article>
+{{ end }}

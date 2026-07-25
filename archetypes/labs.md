@@ -4,6 +4,7 @@ date: {{ .Date }}
 description: ""
 difficulty: "intermediate"
 duration: "60 min"
+tools: []
 tags: []
 categories: ["lab"]
 draft: true

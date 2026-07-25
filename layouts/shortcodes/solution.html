@@ -1,0 +1,12 @@
+<div class="lab-solution-wrap">
+  <button class="solution-toggle" onclick="this.closest('.lab-solution-wrap').classList.toggle('revealed')" aria-expanded="false">
+    <span class="toggle-label">
+      <span class="toggle-show">Reveal Solution</span>
+      <span class="toggle-hide">Hide Solution</span>
+    </span>
+    <span class="toggle-arrow" aria-hidden="true"></span>
+  </button>
+  <div class="solution-content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

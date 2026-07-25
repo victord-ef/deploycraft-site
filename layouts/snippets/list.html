@@ -9,9 +9,28 @@
     </header>
 
     {{ if .RegularPages }}
+
+    {{/* Collect unique lang values for filter buttons */}}
+    {{ $langs := slice }}
+    {{ range .RegularPages }}
+      {{ with .Params.lang }}
+        {{ $langs = $langs | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $langs = $langs | uniq | sort }}
+
+    {{ if gt (len $langs) 1 }}
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      {{ range $langs }}
+      <button class="filter-btn" data-filter="{{ . }}">{{ . }}</button>
+      {{ end }}
+    </div>
+    {{ end }}
+
     <div class="snippet-grid">
       {{ range .RegularPages }}
-      <a href="{{ .RelPermalink }}" class="snippet-card">
+      <a href="{{ .RelPermalink }}" class="snippet-card" data-lang="{{ .Params.lang }}">
         {{ with .Params.lang }}<span class="lang-badge">{{ . }}</span>{{ end }}
         <h3>{{ .Title }}</h3>
         {{ with .Description }}<p>{{ . }}</p>{{ end }}
@@ -23,6 +42,24 @@
       </a>
       {{ end }}
     </div>
+
+    <script>
+    (function () {
+      var btns = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.snippet-card');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.dataset.filter;
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          cards.forEach(function (card) {
+            card.style.display = (filter === 'all' || card.dataset.lang === filter) ? '' : 'none';
+          });
+        });
+      });
+    })();
+    </script>
+
     {{ else }}
     <div class="section-coming-soon">
       <span class="coming-icon">📋</span>

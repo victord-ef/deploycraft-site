@@ -1,7 +1,7 @@
 ---
 title: "PlacementDecision API Adoption Guide"
 description: "A vendor-neutral standard for publishing multi-cluster scheduling results — how producers write PlacementDecision objects and how consumers read, filter, and act on them."
-weight: 30
+weight: 10
 toc: true
 draft: true
 ---
@@ -494,3 +494,5 @@ kubectl delete placementdecisions \
 | **Consumer** | List/watch `PlacementDecisions`; union slices by `decision-key`; resolve `ClusterProfile` references to obtain spoke credentials. |
 
 The shared contract — the `PlacementDecision` CRD — means any compliant scheduler works with any compliant consumer without bespoke integration code.
+
+The [second part](/docs/kubernetes/federating-workloads-placementdecision/) builds on this foundation to construct a federation controller that reconciles a `Deployment` across all selected clusters, handles unreachable spokes, and reports per-cluster rollout status back to the hub.

@@ -3,9 +3,9 @@
   <div class="container">
 
     <header class="post-header">
-      <a href="/tutorials" class="back-link">← Tutorials</a>
+      <a href="{{ .Parent.RelPermalink }}" class="back-link">← {{ .Parent.Title }}</a>
       <div class="tutorial-header-badges">
-        {{ with .Params.cluster }}<span class="cluster-badge">{{ . }}</span>{{ end }}
+        {{ with .Parent }}<span class="cluster-badge">{{ .Title }}</span>{{ end }}
         {{ with .Params.series }}<span class="series-badge">{{ . }}</span>{{ end }}
         {{ with .Params.part }}<span class="part-badge">Part {{ . }}</span>{{ end }}
         {{ with .Params.difficulty }}<span class="lab-badge lab-{{ . | lower }}">{{ . }}</span>{{ end }}

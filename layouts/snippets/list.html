@@ -31,7 +31,10 @@
     <div class="snippet-grid">
       {{ range .RegularPages }}
       <a href="{{ .RelPermalink }}" class="snippet-card" data-lang="{{ .Params.lang }}">
-        {{ with .Params.lang }}<span class="lang-badge">{{ . }}</span>{{ end }}
+        <div class="snippet-card-badges">
+          {{ with .Params.lang }}<span class="lang-badge">{{ . }}</span>{{ end }}
+          {{ with .Params.maturity }}<span class="maturity-badge maturity-{{ . | urlize }}">{{ . }}</span>{{ end }}
+        </div>
         <h3>{{ .Title }}</h3>
         {{ with .Description }}<p>{{ . }}</p>{{ end }}
         {{ with .Params.tags }}

@@ -4,7 +4,11 @@
 
     <header class="post-header">
       <a href="/snippets" class="back-link">← Snippets</a>
-      {{ with .Params.lang }}<span class="lang-badge snippet-lang-badge">{{ . }}</span>{{ end }}
+      <div class="snippet-header-badges">
+        {{ with .Params.lang }}<span class="lang-badge snippet-lang-badge">{{ . }}</span>{{ end }}
+        {{ with .Params.maturity }}<span class="maturity-badge maturity-{{ . | urlize }}">{{ . }}</span>{{ end }}
+        {{ with .Params.verified }}<span class="snippet-verified">Verified {{ . }}</span>{{ end }}
+      </div>
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
       {{ with .Params.tags }}

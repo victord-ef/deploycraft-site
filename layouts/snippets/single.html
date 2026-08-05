@@ -3,7 +3,7 @@
   <div class="container">
 
     <header class="post-header">
-      <a href="/snippets" class="back-link">← Snippets</a>
+      <a href="{{ .Parent.RelPermalink }}" class="back-link">← {{ .Parent.Title }}</a>
       <div class="snippet-header-badges">
         {{ with .Params.lang }}<span class="lang-badge snippet-lang-badge">{{ . }}</span>{{ end }}
         {{ with .Params.maturity }}<span class="maturity-badge maturity-{{ . | urlize }}">{{ . }}</span>{{ end }}
@@ -24,13 +24,12 @@
       {{ .Content }}
     </div>
 
-    {{/* Related: other snippets in the same section, excluding current */}}
     {{ $current := . }}
-    {{ $others := where site.RegularPages "Section" "snippets" }}
+    {{ $others := where site.RegularPages "Section" $current.Section }}
     {{ $others = where $others "RelPermalink" "ne" $current.RelPermalink }}
     {{ if $others }}
     <aside class="related-snippets">
-      <h4>More Snippets</h4>
+      <h4>More {{ .Parent.Title }} Snippets</h4>
       <div class="related-list">
         {{ range first 4 $others }}
         <a href="{{ .RelPermalink }}" class="related-item">

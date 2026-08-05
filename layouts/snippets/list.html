@@ -2,13 +2,41 @@
 <section class="section-page">
   <div class="container">
 
+    {{ if .Sections }}
+    {{/* ── Hub page: /snippets/ ── */}}
     <header class="section-page-header">
       <span class="section-eyebrow">Copy-paste ready</span>
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
     </header>
 
-    {{ if .RegularPages }}
+    <div class="tutorial-hub-grid">
+      {{ range .Sections }}
+      <a href="{{ .RelPermalink }}" class="tutorial-hub-card">
+        <div class="hub-card-top">
+          {{ with .Params.icon }}<span class="hub-card-icon">{{ . }}</span>{{ end }}
+          {{ $count := len .RegularPages }}
+          {{ if $count }}
+          <span class="hub-card-count">{{ $count }} snippet{{ if ne $count 1 }}s{{ end }}</span>
+          {{ else }}
+          <span class="hub-card-count hub-card-soon">Coming soon</span>
+          {{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <span class="hub-card-cta">Browse →</span>
+      </a>
+      {{ end }}
+    </div>
+
+    {{ else if .RegularPages }}
+    {{/* ── Subsection page: /snippets/security/ etc. ── */}}
+    <header class="section-page-header">
+      <a href="/snippets" class="back-link" style="margin-bottom:1rem;display:inline-block;">← Snippets</a>
+      <span class="section-eyebrow">Copy-paste ready</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
 
     {{/* Collect unique lang values for filter buttons */}}
     {{ $langs := slice }}
@@ -64,10 +92,16 @@
     </script>
 
     {{ else }}
+    {{/* ── Empty subsection: coming soon ── */}}
+    <header class="section-page-header">
+      <a href="/snippets" class="back-link" style="margin-bottom:1rem;display:inline-block;">← Snippets</a>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
     <div class="section-coming-soon">
       <span class="coming-icon">📋</span>
-      <h2>Snippets coming soon</h2>
-      <p>Reusable YAML manifests, shell one-liners, Terraform modules, and configuration examples — each with context on when and why to use them.</p>
+      <h2>Coming soon</h2>
+      <p>Snippets for this topic are being added. Subscribe to get notified.</p>
       <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
     </div>
     {{ end }}

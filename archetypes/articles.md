@@ -3,7 +3,7 @@ title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
 author: "Victor D"
 tags: []
-categories: ["blog"]
+categories: ["article"]
 draft: true
 description: ""
 toc: false

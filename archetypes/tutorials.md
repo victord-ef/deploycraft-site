@@ -1,13 +1,13 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
-author: "Victor D"
-series: [""]
+description: ""
+series: ""
 part: 1
+difficulty: "intermediate"
+duration: ""
 tags: []
 categories: ["tutorial"]
 draft: true
-description: ""
 toc: true
-weight: 10
 ---

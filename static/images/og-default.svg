@@ -1,0 +1,56 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="craftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="rgba(59,130,246,0.15)"/>
+      <stop offset="100%" stop-color="rgba(59,130,246,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="5" height="630" fill="url(#nodeGrad)"/>
+
+  <!-- Logo icon badge -->
+  <rect x="80" y="210" width="110" height="110" rx="22" fill="#1a2233"/>
+  <line x1="108" y1="292" x2="135" y2="265" stroke="#2d3a4f" stroke-width="5" stroke-linecap="round"/>
+  <line x1="135" y1="265" x2="162" y2="238" stroke="#2d3a4f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="108" cy="292" r="9"  fill="url(#nodeGrad)"/>
+  <circle cx="135" cy="265" r="10" fill="url(#nodeGrad)"/>
+  <circle cx="162" cy="238" r="11" fill="url(#nodeGrad)"/>
+
+  <!-- Wordmark -->
+  <text x="210" y="290" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="72">
+    <tspan fill="#e2e8f0">deploy</tspan><tspan fill="url(#craftGrad)">craft</tspan><tspan fill="#94a3b8" font-weight="600" font-size="54">.io</tspan>
+  </text>
+
+  <!-- Eyebrow -->
+  <text x="80" y="360" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#4a6080" font-weight="600" letter-spacing="3">
+    DEVOPS · DEVSECOPS · CLOUD NATIVE ENGINEERING
+  </text>
+
+  <!-- Divider -->
+  <rect x="80" y="390" width="120" height="2" fill="url(#nodeGrad)" rx="1"/>
+
+  <!-- Tagline -->
+  <text x="80" y="450" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#e2e8f0" font-weight="700">
+    Built from the field.
+  </text>
+  <text x="80" y="495" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#94a3b8" font-weight="400">
+    Not from the docs.
+  </text>
+</svg>

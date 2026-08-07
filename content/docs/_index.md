@@ -1,5 +1,5 @@
 ﻿---
-title: "Documentation"
-description: "Reference documentation covering Linux, Kubernetes, Terraform, Ansible, Docker, GitHub Actions, AWS, Security, and CI/CD Pipeline Security."
+title: "Docs"
+description: "Evergreen technical reference — command syntax, configuration options, API fields, and architecture patterns for Kubernetes, Linux, Terraform, Ansible, Docker, GitHub Actions/GitOps, AWS, and Security."
 weight: 1
 ---

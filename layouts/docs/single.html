@@ -1,0 +1,62 @@
+{{ define "main" }}
+<article class="single">
+  <div class="container">
+
+    <header class="post-header">
+      {{ with .Params.series }}<span class="series-badge">{{ . }}</span>{{ end }}
+      {{ with .Params.part }}<span class="part-badge">Part {{ . }}</span>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+      {{ with .Params.tags }}
+      <div class="post-meta">
+        <div class="tag-list">
+          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </header>
+
+    {{ with .Params.series }}
+    {{ $series := . }}
+    {{ $seriesPages := where site.RegularPages "Params.series" $series }}
+    {{ if gt (len $seriesPages) 1 }}
+    <nav class="series-nav">
+      <h4>Series: {{ $series }}</h4>
+      <div class="series-nav-links">
+        {{ range $seriesPages.ByParam "part" }}
+        <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} class="active"{{ end }}>
+          <span class="part-num">Part {{ .Params.part }}</span>
+          <span class="part-title">{{ .Title }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </nav>
+    {{ end }}
+    {{ end }}
+
+    <div class="post-layout">
+      {{ if .Params.toc }}
+      <aside class="toc">
+        <h4>Contents</h4>
+        {{ .TableOfContents }}
+      </aside>
+      {{ end }}
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </div>
+
+    {{ if or .PrevInSection .NextInSection }}
+    <nav class="post-nav">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="prev">← {{ .Title }}</a>
+      {{ end }}
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="next">{{ .Title }} →</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+
+  </div>
+</article>
+{{ end }}

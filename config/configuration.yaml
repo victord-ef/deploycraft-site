@@ -1,0 +1,15 @@
+feeds:
+  - name: OpenAI
+    url: https://openai.com/news/rss.xml
+
+  - name: Google AI
+    url: https://blog.google/technology/ai/rss/
+
+  - name: Kubernetes
+    url: https://kubernetes.io/feed.xml
+
+  - name: CNCF
+    url: https://www.cncf.io/feed/
+
+  - name: AWS
+    url: https://aws.amazon.com/blogs/aws/feed/

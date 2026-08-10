@@ -103,4 +103,56 @@ func (s *SQLite) Count() (int, error) {
 	return count, err
 }
 
+func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 
+	rows, err := s.db.Query(
+		`
+		SELECT
+			title,
+			link,
+			description,
+			published,
+			source,
+			category,
+			author
+		FROM articles
+		ORDER BY published DESC
+		LIMIT ?
+		`,
+		limit,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var articles []models.Article
+
+	for rows.Next() {
+
+		var article models.Article
+
+		err := rows.Scan(
+			&article.Title,
+			&article.Link,
+			&article.Description,
+			&article.Published,
+			&article.Source,
+			&article.Category,
+			&article.Author,
+		)
+
+		if err != nil {
+			return nil, err
+		}
+
+		articles = append(articles, article)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return articles, nil
+}

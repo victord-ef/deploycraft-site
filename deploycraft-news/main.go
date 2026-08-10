@@ -1,11 +1,21 @@
-
 package main
 
-type Feed struct {
-    Name string `yaml:"name"`
-    URL  string `yaml:"url"`
-}
+import (
+	"fmt"
+	"log"
 
-type Config struct {
-    Feeds []Feed `yaml:"feeds"`
+	"github.com/victord-ef/RSS/internal/config"
+)
+
+func main() {
+
+	cfg, err := settings.Load("../config/configuration.yaml")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, feed := range cfg.Feeds {
+		fmt.Println(feed.Name)
+		fmt.Println(feed.URL)
+	}
 }

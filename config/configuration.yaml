@@ -9,7 +9,7 @@ feeds:
     url: "https://kubernetes.io/feed.xml"
 
   - name: CNCF
-    url: "https://www.cncf.io/feed/"
+      url: "https://www.cncf.io/feed/"
 
   - name: AWS
     url: "https://aws.amazon.com/blogs/aws/feed/"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/victord-ef/RSS/internal/config"
+	"github.com/victord-ef/deploycraft-site/internal/settings"
 )
 
 func main() {

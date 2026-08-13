@@ -132,6 +132,28 @@
 </section>
 {{ end }}
 
+<!-- LATEST -->
+{{ $latest := first 6 site.RegularPages }}
+{{ if $latest }}
+<section class="latest" id="latest">
+  <div class="container">
+    <h2>Latest</h2>
+    <div class="latest-grid">
+      {{ range $latest }}
+      <a href="{{ .RelPermalink }}" class="latest-card">
+        <div class="latest-card-meta">
+          <span class="latest-section-badge latest-{{ .Section }}">{{ .Section | title }}</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 <!-- SUBSCRIBE -->
 <section class="subscribe" id="subscribe">
   <div class="container">

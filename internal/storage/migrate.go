@@ -3,31 +3,43 @@ package storage
 func (s *SQLite) Migrate() error {
 
 	query := `
+CREATE TABLE IF NOT EXISTS articles (
 
-CREATE TABLE IF NOT EXISTS articles(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-id INTEGER PRIMARY KEY AUTOINCREMENT,
+	title TEXT NOT NULL,
 
-title TEXT NOT NULL,
+	description TEXT,
 
-link TEXT NOT NULL UNIQUE,
+	link TEXT NOT NULL UNIQUE,
 
-description TEXT,
+	published DATETIME,
 
-published DATETIME,
+	source TEXT,
 
-source TEXT,
+	category TEXT,
 
-category TEXT,
+	author TEXT,
 
-author TEXT,
+	status TEXT DEFAULT 'NEW',
 
-summary TEXT,
+	selected INTEGER DEFAULT 0,
 
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+	summarized INTEGER DEFAULT 0,
+
+	published_to_blog INTEGER DEFAULT 0,
+
+	blog_title TEXT,
+
+	summary TEXT,
+
+	keywords TEXT,
+
+	seo_description TEXT,
+
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 
 );
-
 `
 
 	_, err := s.db.Exec(query)

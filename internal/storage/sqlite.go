@@ -49,10 +49,10 @@ func (s *SQLite) Save(article models.Article) error {
 	// ----------------------------------------------------
 	// Initialize editorial workflow
 	// ----------------------------------------------------
+
+	if article.Status == "" {
 	article.Status = "NEW"
-	article.Selected = false
-	article.Summarized = false
-	article.PublishedToBlog = false
+}
 
 	// ----------------------------------------------------
 	// Save article
@@ -170,42 +170,4 @@ func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 	}
 
 	return articles, nil
-
-CREATE TABLE IF NOT EXISTS articles(
-
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-title TEXT NOT NULL,
-
-description TEXT,
-
-link TEXT NOT NULL UNIQUE,
-
-published DATETIME,
-
-source TEXT,
-
-category TEXT,
-
-author TEXT,
-
-status TEXT DEFAULT 'NEW',
-
-selected INTEGER DEFAULT 0,
-
-summarized INTEGER DEFAULT 0,
-
-published_to_blog INTEGER DEFAULT 0,
-
-blog_title TEXT,
-
-summary TEXT,
-
-keywords TEXT,
-
-seo_description TEXT,
-
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-
-);
 }

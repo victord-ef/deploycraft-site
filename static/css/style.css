@@ -1809,6 +1809,7 @@ nav a:hover { color: var(--text); text-decoration: none; }
   overflow: hidden;
 }
 
+
 /* ─── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .hero { padding: 4rem 0 3rem; }

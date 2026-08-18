@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"regexp"
 	"strconv"
+	"strings"
 
 	"github.com/victord-ef/deploycraft-site/internal/models"
 	"github.com/victord-ef/deploycraft-site/internal/service"
@@ -145,13 +147,44 @@ func main() {
 		fmt.Printf("Source:      %s\n", a.Source)
 		fmt.Printf("Published:   %s\n", a.Published.Format("2006-01-02 15:04"))
 		fmt.Printf("Link:        %s\n", a.Link)
-		fmt.Printf("\n%s\n", a.Description)
+		fmt.Printf("\n%s\n", stripHTML(a.Description))
+		if links := extractLinks(a.Description); len(links) > 0 {
+			fmt.Println("\nLinks in article:")
+			for _, l := range links {
+				fmt.Printf("  %s\n", l)
+			}
+		}
 
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown command: %s\n\n", cmd)
 		usage()
 		os.Exit(1)
 	}
+}
+
+func stripHTML(s string) string {
+	s = regexp.MustCompile(`<[^>]+>`).ReplaceAllString(s, "")
+	s = strings.ReplaceAll(s, "&nbsp;", " ")
+	s = strings.ReplaceAll(s, "&amp;", "&")
+	s = strings.ReplaceAll(s, "&lt;", "<")
+	s = strings.ReplaceAll(s, "&gt;", ">")
+	s = strings.ReplaceAll(s, "&quot;", `"`)
+	s = regexp.MustCompile(`\n{3,}`).ReplaceAllString(s, "\n\n")
+	return strings.TrimSpace(s)
+}
+
+func extractLinks(s string) []string {
+	re := regexp.MustCompile(`href="(https?://[^"]+)"`)
+	matches := re.FindAllStringSubmatch(s, -1)
+	seen := map[string]bool{}
+	var links []string
+	for _, m := range matches {
+		if !seen[m[1]] {
+			links = append(links, m[1])
+			seen[m[1]] = true
+		}
+	}
+	return links
 }
 
 func requireID() int64 {

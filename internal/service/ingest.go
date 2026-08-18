@@ -24,6 +24,8 @@ func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 
 		for _, article := range articles {
 
+			article.Source = feed.Name
+
 			exists, err := db.Exists(article.Link)
 			if err != nil {
 				return err

@@ -1,6 +1,7 @@
 package rss
 
 import (
+	"net/http"
 	"time"
 
 	"github.com/mmcdole/gofeed"
@@ -11,6 +12,13 @@ import (
 func Fetch(url string) ([]models.Article, error) {
 
 	parser := gofeed.NewParser()
+	parser.Client = &http.Client{
+		Timeout: 15 * time.Second,
+		Transport: &userAgentTransport{
+			ua:   "DeployCraft-News/1.0 (https://deploycraft.io)",
+			base: http.DefaultTransport,
+		},
+	}
 
 	feed, err := parser.ParseURL(url)
 	if err != nil {
@@ -25,7 +33,6 @@ func Fetch(url string) ([]models.Article, error) {
 			Title:       item.Title,
 			Link:        item.Link,
 			Description: item.Description,
-			Source:      feed.Title,
 		}
 
 		if item.PublishedParsed != nil {
@@ -38,4 +45,16 @@ func Fetch(url string) ([]models.Article, error) {
 	}
 
 	return articles, nil
+}
+
+type userAgentTransport struct {
+	ua   string
+	base http.RoundTripper
+}
+
+func (t *userAgentTransport) RoundTrip(r *http.Request) (*http.Response, error) {
+	r = r.Clone(r.Context())
+	r.Header.Set("User-Agent", t.ua)
+	r.Header.Set("Accept", "application/atom+xml, application/rss+xml, application/xml, text/xml, */*")
+	return t.base.RoundTrip(r)
 }

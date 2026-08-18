@@ -13,6 +13,40 @@ feeds:
   - name: AWS What's New
     url: https://aws.amazon.com/about-aws/whats-new/recent/feed/
 
+  # ── GitHub Releases (primary source) ────────────────────────────────────
+  - name: Kubernetes Releases
+    url: https://github.com/kubernetes/kubernetes/releases.atom
+
+  - name: Helm Releases
+    url: https://github.com/helm/helm/releases.atom
+
+  - name: ArgoCD Releases
+    url: https://github.com/argoproj/argo-cd/releases.atom
+
+  - name: Flux Releases
+    url: https://github.com/fluxcd/flux2/releases.atom
+
+  - name: Cilium Releases
+    url: https://github.com/cilium/cilium/releases.atom
+
+  - name: Istio Releases
+    url: https://github.com/istio/istio/releases.atom
+
+  - name: Falco Releases
+    url: https://github.com/falcosecurity/falco/releases.atom
+
+  - name: Kyverno Releases
+    url: https://github.com/kyverno/kyverno/releases.atom
+
+  - name: Trivy Releases
+    url: https://github.com/aquasecurity/trivy/releases.atom
+
+  - name: cert-manager Releases
+    url: https://github.com/cert-manager/cert-manager/releases.atom
+
+  - name: Prometheus Releases
+    url: https://github.com/prometheus/prometheus/releases.atom
+
   # ── Vulnerability & Advisories ───────────────────────────────────────────
   - name: CISA Advisories
     url: https://www.cisa.gov/cybersecurity-advisories/all.xml

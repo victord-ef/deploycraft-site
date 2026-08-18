@@ -230,6 +230,17 @@ func (s *SQLite) FindByID(id int64) (*models.Article, error) {
 	return &article, nil
 }
 
+func (s *SQLite) DeleteUnreviewed() (int64, error) {
+	result, err := s.db.Exec(
+		`DELETE FROM articles WHERE status IN (?, ?)`,
+		models.StatusNew, models.StatusRejected,
+	)
+	if err != nil {
+		return 0, err
+	}
+	return result.RowsAffected()
+}
+
 func (s *SQLite) UpdateSummary(id int64, blogTitle, summary, keywords, seoDescription string) error {
 	_, err := s.db.Exec(
 		`UPDATE articles
@@ -239,6 +250,30 @@ func (s *SQLite) UpdateSummary(id int64, blogTitle, summary, keywords, seoDescri
 		blogTitle, summary, keywords, seoDescription, models.StatusSummarized, id,
 	)
 	return err
+}
+
+func (s *SQLite) ListByStatusAndSource(status, source string) ([]models.Article, error) {
+	rows, err := s.db.Query(
+		`SELECT id, title, description, link, published, source, category, author, status
+		 FROM articles
+		 WHERE status = ? AND LOWER(source) LIKE LOWER(?)
+		 ORDER BY published DESC`,
+		status, "%"+source+"%",
+	)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var articles []models.Article
+	for rows.Next() {
+		var a models.Article
+		if err := rows.Scan(&a.ID, &a.Title, &a.Description, &a.Link, &a.Published, &a.Source, &a.Category, &a.Author, &a.Status); err != nil {
+			return nil, err
+		}
+		articles = append(articles, a)
+	}
+	return articles, rows.Err()
 }
 
 func (s *SQLite) ListByStatus(status string) ([]models.Article, error) {

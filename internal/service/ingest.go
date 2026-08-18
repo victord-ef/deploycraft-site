@@ -2,11 +2,14 @@ package service
 
 import (
 	"log"
+	"time"
 
 	"github.com/victord-ef/deploycraft-site/internal/rss"
 	"github.com/victord-ef/deploycraft-site/internal/settings"
 	"github.com/victord-ef/deploycraft-site/internal/storage"
 )
+
+const maxArticleAge = 90 * 24 * time.Hour
 
 func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 
@@ -23,6 +26,10 @@ func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 		saved := 0
 
 		for _, article := range articles {
+
+			if time.Since(article.Published) > maxArticleAge {
+				continue
+			}
 
 			article.Source = feed.Name
 

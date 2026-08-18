@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/victord-ef/deploycraft-site/internal/models"
 	"github.com/victord-ef/deploycraft-site/internal/service"
 	"github.com/victord-ef/deploycraft-site/internal/settings"
 	"github.com/victord-ef/deploycraft-site/internal/storage"
@@ -64,7 +65,13 @@ func main() {
 		}
 
 	case "queue":
-		articles, err := service.ReviewQueue(db)
+		var articles []models.Article
+		var err error
+		if len(os.Args) > 2 {
+			articles, err = service.FilteredQueue(db, os.Args[2])
+		} else {
+			articles, err = service.ReviewQueue(db)
+		}
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -83,6 +90,20 @@ func main() {
 			fmt.Printf("%-6d  %-12s  %-45s  %s\n",
 				a.ID, source, title, a.Published.Format("2006-01-02"))
 		}
+
+	case "purge":
+		fmt.Print("Reject all NEW articles? This cannot be undone. (yes/no): ")
+		var confirm string
+		fmt.Scanln(&confirm)
+		if confirm != "yes" {
+			fmt.Println("Aborted.")
+			os.Exit(0)
+		}
+		n, err := service.PurgeQueue(db)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%d articles rejected.\n", n)
 
 	case "select":
 		id := requireID()
@@ -136,10 +157,11 @@ func usage() {
 	fmt.Println("Usage: deploycraft-news <command>")
 	fmt.Println()
 	fmt.Println("Commands:")
-	fmt.Println("  ingest          Fetch RSS feeds and save newsworthy articles")
-	fmt.Println("  latest          Show the 10 most recent articles")
-	fmt.Println("  queue           Show articles awaiting editorial review")
-	fmt.Println("  view   <id>     Show full article details")
-	fmt.Println("  select <id>     Mark article as selected for publication")
-	fmt.Println("  reject <id>     Mark article as rejected")
+	fmt.Println("  ingest              Fetch RSS feeds and save newsworthy articles")
+	fmt.Println("  latest              Show the 10 most recent articles")
+	fmt.Println("  queue [source]      Show articles awaiting review (optional source filter)")
+	fmt.Println("  view   <id>         Show full article details")
+	fmt.Println("  select <id>         Mark article as selected for publication")
+	fmt.Println("  reject <id>         Mark article as rejected")
+	fmt.Println("  purge               Bulk-reject all NEW articles (start fresh)")
 }

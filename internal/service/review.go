@@ -10,6 +10,17 @@ func ReviewQueue(db *storage.SQLite) ([]models.Article, error) {
 	return db.ListByStatus(models.StatusNew)
 }
 
+// List articles waiting for review filtered by source name (partial match).
+func FilteredQueue(db *storage.SQLite, source string) ([]models.Article, error) {
+	return db.ListByStatusAndSource(models.StatusNew, source)
+}
+
+// Delete all NEW and REJECTED articles so their links are freed for re-ingestion.
+// SELECTED and SUMMARIZED articles are preserved.
+func PurgeQueue(db *storage.SQLite) (int64, error) {
+	return db.DeleteUnreviewed()
+}
+
 // Mark an article as selected for publication.
 func SelectArticle(db *storage.SQLite, id int64) error {
 	return db.UpdateStatus(id, models.StatusSelected)

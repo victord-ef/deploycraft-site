@@ -175,3 +175,115 @@ func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 
 	return articles, nil
 }
+
+func (s *SQLite) UpdateStatus(id int64, status string) error {
+
+	_, err := s.db.Exec(
+		`
+		UPDATE articles
+		SET status = ?
+		WHERE id = ?
+		`,
+		status,
+		id,
+	)
+
+	return err
+}
+
+func (s *SQLite) FindByID(id int64) (*models.Article, error) {
+
+	var article models.Article
+
+	err := s.db.QueryRow(
+		`
+		SELECT
+			id,
+			title,
+			description,
+			link,
+			published,
+			source,
+			category,
+			author,
+			status
+		FROM articles
+		WHERE id = ?
+		`,
+		id,
+	).Scan(
+		&article.ID,
+		&article.Title,
+		&article.Description,
+		&article.Link,
+		&article.Published,
+		&article.Source,
+		&article.Category,
+		&article.Author,
+		&article.Status,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &article, nil
+}
+
+func (s *SQLite) ListByStatus(status string) ([]models.Article, error) {
+
+	rows, err := s.db.Query(
+		`
+		SELECT
+			id,
+			title,
+			description,
+			link,
+			published,
+			source,
+			category,
+			author,
+			status
+		FROM articles
+		WHERE status = ?
+		ORDER BY published DESC
+		`,
+		status,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var articles []models.Article
+
+	for rows.Next() {
+
+		var article models.Article
+
+		err := rows.Scan(
+			&article.ID,
+			&article.Title,
+			&article.Description,
+			&article.Link,
+			&article.Published,
+			&article.Source,
+			&article.Category,
+			&article.Author,
+			&article.Status,
+		)
+
+		if err != nil {
+			return nil, err
+		}
+
+		articles = append(articles, article)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return articles, nil
+}

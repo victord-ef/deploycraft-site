@@ -34,6 +34,32 @@ func main() {
 		log.Fatal(err)
 	}
 
+        // ----------------------------------------------------
+	// Test Review Queue (Temporary)
+	// ----------------------------------------------------
+	reviewArticles, err := service.ReviewQueue(db)
+	if err != nil {
+	log.Fatal(err)
+		}
+
+	fmt.Printf("\nArticles waiting for review: %d\n\n", len(reviewArticles))
+
+	if len(reviewArticles) > 0 {
+
+		article := reviewArticles[0]
+
+		fmt.Println("First article waiting for review")
+		fmt.Println("===============================")
+
+		fmt.Printf("ID: %d\n", article.ID)
+		fmt.Printf("Title: %s\n", article.Title)
+		fmt.Printf("Status: %s\n", article.Status)
+		fmt.Printf("Source: %s\n", article.Source)
+		fmt.Printf("Published: %s\n", article.Published.Format("2006-01-02 15:04"))
+		fmt.Printf("Link: %s\n", article.Link)
+	}
+	
+
 	// Display final statistics
 	total, err := db.Count()
 	if err != nil {
@@ -49,7 +75,7 @@ func main() {
 	fmt.Println("Latest Articles")
 	fmt.Println("==============================")
 
-	for i, article := range articles {
+	for _, article := range articles {
 
 
 	     fmt.Printf("ID: %d\n", article.ID)

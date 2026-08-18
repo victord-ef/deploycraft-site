@@ -33,6 +33,11 @@ func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 				continue
 			}
 
+			result := Evaluate(article)
+			if !result.Newsworthy {
+				continue
+			}
+
 			if err := db.Save(article); err != nil {
 				return err
 			}

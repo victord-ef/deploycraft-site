@@ -3,3 +3,4 @@ resources/
 _private/
 .wrangler/
 *.tmp.*
+*.db

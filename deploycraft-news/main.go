@@ -11,8 +11,8 @@ import (
 func main() {
 
 	// Open database
-	fmt.Println("Database path: data/news.db")
-	db, err := storage.New("data/news.db")
+	fmt.Println("Database path: deploycraft-news/news.db")
+	db, err := storage.New("deploycraft-news/news.db")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,6 +58,13 @@ func main() {
 		fmt.Printf("Published: %s\n", article.Published.Format("2006-01-02 15:04"))
 		fmt.Printf("Link: %s\n", article.Link)
 	}
+
+	err = service.SelectArticle(db, 1239)
+	if err != nil {
+	    log.Fatal(err)
+	}
+
+	fmt.Println("Article 1239 selected.")
 	
 
 	// Display final statistics

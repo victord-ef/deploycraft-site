@@ -30,8 +30,8 @@ func PublishArticle(db *storage.SQLite, id int64, rewriteFile string, outputDir 
 
 	slug := slugify(title)
 	seoDesc := seoDescription(body)
-	if seoDesc == "" || article.Description != "" {
-		seoDesc = article.Description
+	if article.Description != "" {
+		seoDesc = stripHTMLDesc(article.Description)
 	}
 	tags := buildTags(article)
 
@@ -136,6 +136,24 @@ func buildTags(article *models.Article) []string {
 		tags = append(tags, "devsecops")
 	}
 	return tags
+}
+
+func stripHTMLDesc(s string) string {
+	s = regexp.MustCompile(`<[^>]+>`).ReplaceAllString(s, "")
+	s = strings.ReplaceAll(s, "&nbsp;", " ")
+	s = strings.ReplaceAll(s, "&amp;", "&")
+	s = strings.ReplaceAll(s, "&lt;", "<")
+	s = strings.ReplaceAll(s, "&gt;", ">")
+	s = strings.ReplaceAll(s, "&quot;", `"`)
+	s = strings.Join(strings.Fields(s), " ")
+	if len(s) > 155 {
+		cut := s[:155]
+		if i := strings.LastIndex(cut, " "); i > 100 {
+			cut = cut[:i]
+		}
+		s = cut + "..."
+	}
+	return s
 }
 
 func renderMarkdown(title, slug, seoDesc string, tags []string, body string, article *models.Article) string {

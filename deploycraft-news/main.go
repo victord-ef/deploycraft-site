@@ -91,6 +91,20 @@ func main() {
 				a.ID, source, title, a.Published.Format("2006-01-02"))
 		}
 
+	case "publish":
+		if len(os.Args) < 4 {
+			fmt.Fprintln(os.Stderr, "Usage: deploycraft-news publish <id> <rewrite-file>")
+			os.Exit(1)
+		}
+		id, err := strconv.ParseInt(os.Args[2], 10, 64)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Invalid ID: %s\n", os.Args[2])
+			os.Exit(1)
+		}
+		if err := service.PublishArticle(db, id, os.Args[3], "content/news"); err != nil {
+			log.Fatal(err)
+		}
+
 	case "purge":
 		fmt.Print("Reject all NEW articles? This cannot be undone. (yes/no): ")
 		var confirm string
@@ -163,5 +177,6 @@ func usage() {
 	fmt.Println("  view   <id>         Show full article details")
 	fmt.Println("  select <id>         Mark article as selected for publication")
 	fmt.Println("  reject <id>         Mark article as rejected")
-	fmt.Println("  purge               Bulk-reject all NEW articles (start fresh)")
+	fmt.Println("  publish <id> <file>  Generate Hugo article from rewrite file")
+	fmt.Println("  purge               Delete all NEW/REJECTED articles (start fresh)")
 }

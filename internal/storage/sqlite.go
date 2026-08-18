@@ -230,6 +230,17 @@ func (s *SQLite) FindByID(id int64) (*models.Article, error) {
 	return &article, nil
 }
 
+func (s *SQLite) UpdateSummary(id int64, blogTitle, summary, keywords, seoDescription string) error {
+	_, err := s.db.Exec(
+		`UPDATE articles
+		 SET blog_title = ?, summary = ?, keywords = ?, seo_description = ?,
+		     status = ?, summarized = 1
+		 WHERE id = ?`,
+		blogTitle, summary, keywords, seoDescription, models.StatusSummarized, id,
+	)
+	return err
+}
+
 func (s *SQLite) ListByStatus(status string) ([]models.Article, error) {
 
 	rows, err := s.db.Query(

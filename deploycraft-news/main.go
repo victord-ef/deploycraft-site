@@ -24,13 +24,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Println("--- Ingesting feeds ---")
 	if err := service.IngestFeeds(db, cfg); err != nil {
-		log.Fatal(err)
-	}
-
-	log.Println("--- Summarizing selected articles ---")
-	if err := service.SummarizeSelected(db); err != nil {
 		log.Fatal(err)
 	}
 

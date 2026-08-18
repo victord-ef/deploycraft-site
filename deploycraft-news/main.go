@@ -39,6 +39,29 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	
+	articles, err := service.Latest(db, 10)
+	if err != nil {
+	    log.Fatal(err)
+}
+
+	fmt.Println()
+	fmt.Println("Latest Articles")
+	fmt.Println("==============================")
+
+	for i, article := range articles {
+
+
+	     fmt.Printf("ID: %d\n", article.ID)
+	     fmt.Printf("Title: %s\n", article.Title)
+
+	     fmt.Printf("   Source: %s\n", article.Source)
+	     fmt.Printf("   Published: %s\n", article.Published.Format("2006-01-02 15:04"))
+	     fmt.Printf("   Status: %s\n", article.Status)
+	     fmt.Printf("   Link: %s\n", article.Link)
+	     fmt.Println()
+}
+
 
 	log.Printf("Total articles in database: %d", total)
 }

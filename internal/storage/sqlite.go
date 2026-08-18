@@ -51,7 +51,7 @@ func (s *SQLite) Save(article models.Article) error {
 	// ----------------------------------------------------
 
 	if article.Status == "" {
-	article.Status = "NEW"
+	article.Status = models.StatusNew
 }
 
 	// ----------------------------------------------------
@@ -123,13 +123,15 @@ func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 	rows, err := s.db.Query(
 		`
 		SELECT
+		        id,
 			title,
 			link,
 			description,
 			published,
 			source,
 			category,
-			author
+			author,
+			status
 		FROM articles
 		ORDER BY published DESC
 		LIMIT ?
@@ -149,6 +151,7 @@ func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 		var article models.Article
 
 		err := rows.Scan(
+			&article.ID,
 			&article.Title,
 			&article.Link,
 			&article.Description,
@@ -156,6 +159,7 @@ func (s *SQLite) Recent(limit int) ([]models.Article, error) {
 			&article.Source,
 			&article.Category,
 			&article.Author,
+			&article.Status,
 		)
 
 		if err != nil {

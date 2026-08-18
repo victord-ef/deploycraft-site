@@ -95,7 +95,7 @@ func main() {
 
 	case "publish":
 		if len(os.Args) < 4 {
-			fmt.Fprintln(os.Stderr, "Usage: deploycraft-news publish <id> <rewrite-file>")
+			fmt.Fprintln(os.Stderr, "Usage: deploycraft-news publish <id> <rewrite-file> [--no-attribution]")
 			os.Exit(1)
 		}
 		id, err := strconv.ParseInt(os.Args[2], 10, 64)
@@ -103,7 +103,8 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Invalid ID: %s\n", os.Args[2])
 			os.Exit(1)
 		}
-		if err := service.PublishArticle(db, id, os.Args[3], "content/news"); err != nil {
+		noAttribution := len(os.Args) > 4 && os.Args[4] == "--no-attribution"
+		if err := service.PublishArticle(db, id, os.Args[3], "content/news", noAttribution); err != nil {
 			log.Fatal(err)
 		}
 
@@ -210,6 +211,6 @@ func usage() {
 	fmt.Println("  view   <id>         Show full article details")
 	fmt.Println("  select <id>         Mark article as selected for publication")
 	fmt.Println("  reject <id>         Mark article as rejected")
-	fmt.Println("  publish <id> <file>  Generate Hugo article from rewrite file")
+	fmt.Println("  publish <id> <file> [--no-attribution]  Generate Hugo article from rewrite file")
 	fmt.Println("  purge               Delete all NEW/REJECTED articles (start fresh)")
 }

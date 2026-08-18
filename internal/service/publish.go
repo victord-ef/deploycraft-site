@@ -12,7 +12,7 @@ import (
 	"github.com/victord-ef/deploycraft-site/internal/storage"
 )
 
-func PublishArticle(db *storage.SQLite, id int64, rewriteFile string, outputDir string) error {
+func PublishArticle(db *storage.SQLite, id int64, rewriteFile string, outputDir string, noAttribution bool) error {
 	article, err := db.FindByID(id)
 	if err != nil {
 		return fmt.Errorf("article not found: %w", err)
@@ -35,7 +35,7 @@ func PublishArticle(db *storage.SQLite, id int64, rewriteFile string, outputDir 
 	}
 	tags := buildTags(article)
 
-	md := renderMarkdown(title, slug, seoDesc, tags, body, article)
+	md := renderMarkdown(title, slug, seoDesc, tags, body, article, noAttribution)
 
 	filename := filepath.Join(outputDir, slug+".md")
 	if err := os.WriteFile(filename, []byte(md), 0644); err != nil {
@@ -156,14 +156,17 @@ func stripHTMLDesc(s string) string {
 	return s
 }
 
-func renderMarkdown(title, slug, seoDesc string, tags []string, body string, article *models.Article) string {
+func renderMarkdown(title, slug, seoDesc string, tags []string, body string, article *models.Article, noAttribution bool) string {
 	tagList := `["` + strings.Join(tags, `", "`) + `"]`
 	date := time.Now().Format("2006-01-02")
 
-	attribution := fmt.Sprintf(
-		"\n\n---\n*Originally reported by [%s](%s). Editorial coverage by DeployCraft.*",
-		article.Source, article.Link,
-	)
+	var footer string
+	if !noAttribution {
+		footer = fmt.Sprintf(
+			"\n\n---\n*Originally reported by [%s](%s). Editorial coverage by DeployCraft.*",
+			article.Source, article.Link,
+		)
+	}
 
 	return fmt.Sprintf(`---
 title: %q
@@ -179,5 +182,5 @@ source_url: %q
 ---
 
 %s%s
-`, title, date, seoDesc, tagList, article.Source, article.Link, body, attribution)
+`, title, date, seoDesc, tagList, article.Source, article.Link, body, footer)
 }

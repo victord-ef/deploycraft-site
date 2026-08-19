@@ -73,6 +73,3 @@ The Era of Counterfeit Trust
 The Lazarus Group’s latest campaign represents a watershed moment in cyber espionage. The danger is no longer just the technical brilliance of a kernel-mode zero-day, but the seamless weaving of legitimate, trusted infrastructure into every layer of the attack.
 
 By impersonating recruiters, hijacking reputable servers, and adopting post-quantum encryption, Lazarus has created a landscape where the tools and partners we rely on are the very ones being turned against us. As the line between authentic and counterfeit infrastructure continues to blur, we must ask: How can "Zero Trust" architectures evolve when the fundamental identities and platforms we are taught to trust are the ones being systematically impersonated?
-
----
-*Originally reported by [The Hacker News](https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html). Editorial coverage by DeployCraft.*

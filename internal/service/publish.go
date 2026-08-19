@@ -125,7 +125,8 @@ func buildTags(article *models.Article) []string {
 
 	text := strings.ToLower(article.Title + " " + article.Source)
 	for keyword, tag := range tagMap {
-		if strings.Contains(text, keyword) && !seen[tag] {
+		pattern := `(?i)\b` + regexp.QuoteMeta(keyword) + `\b`
+		if matched, _ := regexp.MatchString(pattern, text); matched && !seen[tag] {
 			tags = append(tags, tag)
 			seen[tag] = true
 		}

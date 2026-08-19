@@ -5,9 +5,9 @@ import (
 	"github.com/victord-ef/deploycraft-site/internal/storage"
 )
 
-// List all articles waiting for editorial review.
+// List all articles waiting for editorial review (NEW and SELECTED).
 func ReviewQueue(db *storage.SQLite) ([]models.Article, error) {
-	return db.ListByStatus(models.StatusNew)
+	return db.ListReviewable()
 }
 
 // List articles waiting for review filtered by source name (partial match).

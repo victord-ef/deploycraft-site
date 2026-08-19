@@ -9,7 +9,7 @@ import (
 	"github.com/victord-ef/deploycraft-site/internal/storage"
 )
 
-const maxArticleAge = 90 * 24 * time.Hour
+var earliest2026 = time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)
 
 func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 
@@ -27,7 +27,7 @@ func IngestFeeds(db *storage.SQLite, cfg *settings.Configuration) error {
 
 		for _, article := range articles {
 
-			if time.Since(article.Published) > maxArticleAge {
+			if article.Published.Before(earliest2026) {
 				continue
 			}
 

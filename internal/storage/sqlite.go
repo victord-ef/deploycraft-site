@@ -276,6 +276,28 @@ func (s *SQLite) ListByStatusAndSource(status, source string) ([]models.Article,
 	return articles, rows.Err()
 }
 
+func (s *SQLite) ListReviewable() ([]models.Article, error) {
+	rows, err := s.db.Query(
+		`SELECT id, title, description, link, published, source, category, author, status
+		 FROM articles
+		 WHERE status IN ('NEW', 'SELECTED')
+		 ORDER BY status ASC, published DESC`,
+	)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var articles []models.Article
+	for rows.Next() {
+		var a models.Article
+		if err := rows.Scan(&a.ID, &a.Title, &a.Description, &a.Link, &a.Published, &a.Source, &a.Category, &a.Author, &a.Status); err != nil {
+			return nil, err
+		}
+		articles = append(articles, a)
+	}
+	return articles, rows.Err()
+}
+
 func (s *SQLite) ListByStatus(status string) ([]models.Article, error) {
 
 	rows, err := s.db.Query(

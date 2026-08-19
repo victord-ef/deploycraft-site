@@ -78,8 +78,8 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Printf("%d articles waiting for review\n\n", len(articles))
-		fmt.Printf("%-6s  %-12s  %-45s  %s\n", "ID", "SOURCE", "TITLE", "PUBLISHED")
-		fmt.Println("-------  ------------  ---------------------------------------------  ----------")
+		fmt.Printf("%-6s  %-9s  %-12s  %-45s  %s\n", "ID", "STATUS", "SOURCE", "TITLE", "PUBLISHED")
+		fmt.Println("-------  ---------  ------------  ---------------------------------------------  ----------")
 		for _, a := range articles {
 			title := a.Title
 			if len(title) > 45 {
@@ -89,8 +89,8 @@ func main() {
 			if len(source) > 12 {
 				source = source[:12]
 			}
-			fmt.Printf("%-6d  %-12s  %-45s  %s\n",
-				a.ID, source, title, a.Published.Format("2006-01-02"))
+			fmt.Printf("%-6d  %-9s  %-12s  %-45s  %s\n",
+				a.ID, a.Status, source, title, a.Published.Format("2006-01-02"))
 		}
 
 	case "publish":

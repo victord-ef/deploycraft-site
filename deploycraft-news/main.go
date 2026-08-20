@@ -108,6 +108,17 @@ func main() {
 			log.Fatal(err)
 		}
 
+	case "publish-direct":
+		if len(os.Args) < 3 {
+			fmt.Fprintln(os.Stderr, "Usage: deploycraft-news publish-direct <rewrite-file> [--source <name>] [--url <url>]")
+			os.Exit(1)
+		}
+		flags := parseFlags(os.Args[3:], "--source", "--url")
+		source, sourceURL := flags[0], flags[1]
+		if err := service.PublishDirect(os.Args[2], "content/news", source, sourceURL); err != nil {
+			log.Fatal(err)
+		}
+
 	case "purge":
 		fmt.Print("Reject all NEW articles? This cannot be undone. (yes/no): ")
 		var confirm string
@@ -188,6 +199,18 @@ func extractLinks(s string) []string {
 	return links
 }
 
+func parseFlags(args []string, keys ...string) []string {
+	result := make([]string, len(keys))
+	for i, key := range keys {
+		for j, arg := range args {
+			if arg == key && j+1 < len(args) {
+				result[i] = args[j+1]
+			}
+		}
+	}
+	return result
+}
+
 func requireID() int64 {
 	if len(os.Args) < 3 {
 		fmt.Fprintf(os.Stderr, "Usage: deploycraft-news %s <id>\n", os.Args[1])
@@ -212,5 +235,6 @@ func usage() {
 	fmt.Println("  select <id>         Mark article as selected for publication")
 	fmt.Println("  reject <id>         Mark article as rejected")
 	fmt.Println("  publish <id> <file> [--no-attribution]  Generate Hugo article from rewrite file")
+	fmt.Println("  publish-direct <file> [--source <name>] [--url <url>]  Publish without a DB article")
 	fmt.Println("  purge               Delete all NEW/REJECTED articles (start fresh)")
 }

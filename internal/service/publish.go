@@ -53,6 +53,48 @@ func PublishArticle(db *storage.SQLite, id int64, rewriteFile string, outputDir 
 	return nil
 }
 
+func PublishDirect(rewriteFile, outputDir, source, sourceURL string) error {
+	raw, err := os.ReadFile(rewriteFile)
+	if err != nil {
+		return fmt.Errorf("reading rewrite file: %w", err)
+	}
+
+	title, body := parseRewrite(string(raw))
+	if title == "" {
+		return fmt.Errorf("rewrite file must have a title on the first line")
+	}
+
+	slug := slugify(title)
+	seoDesc := seoDescription(body)
+	tags := buildTagsFromText(title + " " + source)
+	tagList := `["` + strings.Join(tags, `", "`) + `"]`
+	date := time.Now().Format("2006-01-02")
+
+	md := fmt.Sprintf(`---
+title: %q
+date: %s
+author: "Victor D"
+description: %q
+tags: %s
+categories: ["news"]
+draft: false
+toc: true
+source: %q
+source_url: %q
+---
+
+%s
+`, title, date, seoDesc, tagList, source, sourceURL, body)
+
+	filename := filepath.Join(outputDir, slug+".md")
+	if err := os.WriteFile(filename, []byte(md), 0644); err != nil {
+		return fmt.Errorf("writing markdown: %w", err)
+	}
+
+	fmt.Printf("Published: %s\n", filename)
+	return nil
+}
+
 // parseRewrite splits the rewrite file into title (first line) and body (rest).
 // Strips leading # from the title if present.
 func parseRewrite(content string) (title, body string) {
@@ -92,38 +134,36 @@ func seoDescription(body string) string {
 	return cut + "..."
 }
 
-// buildTags derives tags from the article source and title keywords.
-func buildTags(article *models.Article) []string {
-	tagMap := map[string]string{
-		"kubernetes":    "kubernetes",
-		"cncf":          "cncf",
-		"helm":          "helm",
-		"argocd":        "argocd",
-		"argo-cd":       "argocd",
-		"flux":          "flux",
-		"cilium":        "cilium",
-		"istio":         "istio",
-		"falco":         "falco",
-		"kyverno":       "kyverno",
-		"trivy":         "trivy",
-		"vault":         "vault",
-		"security":      "security",
-		"vulnerability": "vulnerability",
-		"cve":           "cve",
-		"ransomware":    "ransomware",
-		"exploit":       "exploit",
-		"zero-day":      "zero-day",
-		"patch":         "patch",
-		"aws":           "aws",
-		"terraform":     "terraform",
-		"docker":        "docker",
-		"containerd":    "containerd",
-	}
+var tagMap = map[string]string{
+	"kubernetes":    "kubernetes",
+	"cncf":          "cncf",
+	"helm":          "helm",
+	"argocd":        "argocd",
+	"argo-cd":       "argocd",
+	"flux":          "flux",
+	"cilium":        "cilium",
+	"istio":         "istio",
+	"falco":         "falco",
+	"kyverno":       "kyverno",
+	"trivy":         "trivy",
+	"vault":         "vault",
+	"security":      "security",
+	"vulnerability": "vulnerability",
+	"cve":           "cve",
+	"ransomware":    "ransomware",
+	"exploit":       "exploit",
+	"zero-day":      "zero-day",
+	"patch":         "patch",
+	"aws":           "aws",
+	"terraform":     "terraform",
+	"docker":        "docker",
+	"containerd":    "containerd",
+}
 
+func buildTagsFromText(text string) []string {
+	text = strings.ToLower(text)
 	seen := map[string]bool{}
 	var tags []string
-
-	text := strings.ToLower(article.Title + " " + article.Source)
 	for keyword, tag := range tagMap {
 		pattern := `(?i)\b` + regexp.QuoteMeta(keyword) + `\b`
 		if matched, _ := regexp.MatchString(pattern, text); matched && !seen[tag] {
@@ -131,12 +171,15 @@ func buildTags(article *models.Article) []string {
 			seen[tag] = true
 		}
 	}
-
 	tags = append(tags, "news")
 	if !seen["security"] {
 		tags = append(tags, "devsecops")
 	}
 	return tags
+}
+
+func buildTags(article *models.Article) []string {
+	return buildTagsFromText(article.Title + " " + article.Source)
 }
 
 func stripHTMLDesc(s string) string {

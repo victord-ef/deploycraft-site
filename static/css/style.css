@@ -1889,6 +1889,116 @@ nav a:hover { color: var(--text); text-decoration: none; }
 }
 
 
+/* ─── Products ─────────────────────────────────── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.product-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+
+.product-card-top { margin-bottom: 0.25rem; }
+
+.product-icon { font-size: 2rem; line-height: 1; display: block; }
+
+.product-card h3 { font-size: 1.1rem; font-weight: 700; margin: 0; }
+
+.product-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.6; margin: 0; flex-grow: 1; }
+
+.product-cta {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 0.75rem;
+  display: block;
+}
+
+/* Product single page */
+.product-header-icon { font-size: 2rem; vertical-align: middle; }
+
+.product-intro {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.product-intro p { margin-bottom: 1rem; }
+.product-intro p:last-child { margin-bottom: 0; }
+
+/* Pentest service cards */
+.pentest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.pentest-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color 0.2s;
+}
+
+.pentest-card:hover { border-color: var(--accent); }
+
+.pentest-icon { font-size: 1.75rem; display: block; margin-bottom: 0.75rem; }
+
+.pentest-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.pentest-card p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Product CTA block */
+.product-cta-block {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 70%);
+}
+
+.product-cta-block h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.product-cta-block p {
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  font-size: 1rem;
+}
+
 /* ─── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .hero { padding: 4rem 0 3rem; }
@@ -1907,4 +2017,5 @@ nav a:hover { color: var(--text); text-decoration: none; }
   .lab-grid, .snippet-grid, .download-grid { grid-template-columns: 1fr; }
   .tutorial-hub-grid { grid-template-columns: 1fr; }
   .latest-grid { grid-template-columns: 1fr; }
+  .product-grid, .pentest-grid { grid-template-columns: 1fr; }
 }

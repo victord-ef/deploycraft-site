@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <a href="/products" class="back-link">← Products</a>
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Service</span>
+      <h1>
+        {{ with .Params.icon }}<span class="product-header-icon">{{ . }}</span> {{ end }}{{ .Title }}
+      </h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ with .Content }}
+    <div class="product-intro">{{ . }}</div>
+    {{ end }}
+
+    {{ with .Params.services }}
+    <div class="pentest-grid">
+      {{ range . }}
+      <div class="pentest-card">
+        {{ with .icon }}<span class="pentest-icon">{{ . }}</span>{{ end }}
+        <h3>{{ .name }}</h3>
+        <p>{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="product-cta-block">
+      <h2>Get in touch</h2>
+      <p>Engagements are scoped individually. Contact to discuss your environment, timeline, and objectives.</p>
+      <button class="btn-primary" id="contact-trigger">Request an engagement →</button>
+    </div>
+
+  </div>
+</section>
+{{ end }}

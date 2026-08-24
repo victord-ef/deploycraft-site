@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article class="single cheatsheet-single">
+  <div class="container">
+
+    <header class="post-header">
+      <a href="/cheatsheets" class="back-link">← Cheatsheets</a>
+      <div class="cheatsheet-header-meta">
+        {{ with .Params.icon }}<span class="cheatsheet-header-icon">{{ . }}</span>{{ end }}
+        {{ with .Params.count }}<span class="cheatsheet-count">{{ . }} commands</span>{{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+      {{ with .Params.tags }}
+      <div class="post-meta">
+        <div class="tag-list">
+          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </header>
+
+    <div class="post-content cheatsheet-content">
+      {{ .Content }}
+    </div>
+
+    {{ $current := . }}
+    {{ $others := where site.RegularPages "Section" "cheatsheets" }}
+    {{ $others = where $others "RelPermalink" "ne" $current.RelPermalink }}
+    {{ if $others }}
+    <aside class="related-snippets">
+      <h4>More Cheatsheets</h4>
+      <div class="related-list">
+        {{ range first 5 $others }}
+        <a href="{{ .RelPermalink }}" class="related-item">
+          {{ with .Params.icon }}<span>{{ . }}</span>{{ end }}
+          <span class="related-title">{{ .Title }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </aside>
+    {{ end }}
+
+  </div>
+</article>
+{{ end }}

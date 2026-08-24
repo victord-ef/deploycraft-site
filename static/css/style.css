@@ -1889,6 +1889,77 @@ nav a:hover { color: var(--text); text-decoration: none; }
 }
 
 
+/* ─── Cheatsheets ──────────────────────────────── */
+.cheatsheet-intro {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.cheatsheet-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.cheatsheet-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+
+.cheatsheet-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.cheatsheet-icon { font-size: 1.75rem; line-height: 1; }
+
+.cheatsheet-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(59,130,246,0.1);
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+}
+
+.cheatsheet-card h3 { font-size: 1rem; font-weight: 700; margin: 0; }
+
+.cheatsheet-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.55; margin: 0; flex-grow: 1; }
+
+.cheatsheet-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
+/* Cheatsheet single page */
+.cheatsheet-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cheatsheet-header-icon { font-size: 2rem; line-height: 1; }
+
+.cheatsheet-content h2 {
+  position: sticky;
+  top: 4.5rem;
+  background: var(--dark);
+  padding: 0.5rem 0;
+  z-index: 10;
+}
+
 /* ─── Products ─────────────────────────────────── */
 .product-grid {
   display: grid;
@@ -2018,4 +2089,5 @@ nav a:hover { color: var(--text); text-decoration: none; }
   .tutorial-hub-grid { grid-template-columns: 1fr; }
   .latest-grid { grid-template-columns: 1fr; }
   .product-grid, .pentest-grid { grid-template-columns: 1fr; }
+  .cheatsheet-grid { grid-template-columns: 1fr; }
 }

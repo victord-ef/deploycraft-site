@@ -1,5 +1,5 @@
 ---
-title: "How mTLS Actually Works End to End"
+title: "How mTLS Actually Works End to End — Part 1: The Handshake"
 date: 2026-08-06
 author: "Victor D"
 description: "Most explanations of mutual TLS stop at 'both sides present certificates'. This article walks through the full handshake, what each party actually verifies, and why mTLS is the foundation of zero-trust networking."

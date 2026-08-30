@@ -1,5 +1,5 @@
 ---
-title: "Prometheus vs Datadog for Kubernetes Observability"
+title: "Prometheus vs Datadog — Part 1: Kubernetes Observability Compared"
 date: 2026-08-06
 author: "Victor D"
 description: "Prometheus and Datadog both give you Kubernetes metrics, dashboards, and alerts. The difference is what you pay with: money or engineering time. Neither is free."

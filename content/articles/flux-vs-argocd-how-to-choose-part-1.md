@@ -1,5 +1,5 @@
 ---
-title: "Flux vs ArgoCD — How to Choose for Your Team"
+title: "Flux vs ArgoCD — Part 1: How to Choose for Your Team"
 date: 2026-08-06
 author: "Victor D"
 description: "Both Flux and ArgoCD are CNCF-graduated GitOps tools that do the same fundamental job. The choice between them is not about capability — it is about how your team works and what you want to own."

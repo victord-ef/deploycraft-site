@@ -1,5 +1,5 @@
 ---
-title: "Kyverno vs OPA/Gatekeeper — Policy Enforcement Compared"
+title: "Kyverno vs OPA/Gatekeeper — Part 1: Policy Enforcement Compared"
 date: 2026-08-06
 author: "Victor D"
 description: "Kyverno and OPA/Gatekeeper both enforce policy at the Kubernetes admission layer. The difference is in language, philosophy, and what each tool can do beyond validation."

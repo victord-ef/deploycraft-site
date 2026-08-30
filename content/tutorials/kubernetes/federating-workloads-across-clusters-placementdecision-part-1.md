@@ -1,10 +1,14 @@
 ---
 title: "Federating Workloads Across Clusters Using PlacementDecision — Part 1: Adopting the Placement API"
 date: 2026-08-28
-author: "Victor D"
 description: "Multi-cluster Kubernetes is no longer niche — it is the default architecture for resilient, regulated, or globally distributed platforms. The OCM Placement API gives you a declarative, scheduler-driven model for expressing where workloads should run. This is how to adopt it."
+cluster: "Kubernetes"
+series: "Multi-cluster Scheduling"
+part: 1
+difficulty: "advanced"
+duration: "45 min"
 tags: ["kubernetes", "multi-cluster", "open-cluster-management", "placement", "platform-engineering", "federation"]
-categories: ["article"]
+categories: ["tutorial"]
 draft: false
 toc: true
 ---
@@ -13,7 +17,7 @@ Running a single Kubernetes cluster is straightforward. Running three clusters i
 
 Open Cluster Management (OCM) is the CNCF project that answers this question with a structured API. At its centre is the `Placement` resource — a declarative specification of where workloads should run — and the `PlacementDecision` resource, which is the scheduler's answer. This two-part series covers how to adopt the Placement API and how to use `PlacementDecision` to drive real workload scheduling.
 
-Part 1 covers the foundation: hub and spoke architecture, cluster registration, and how to write `Placement` objects that express meaningful scheduling intent. [Part 2](/articles/federating-workloads-across-clusters-placementdecision-part-2/) covers what happens next — reading `PlacementDecision`, integrating with GitOps, handling cluster churn, and monitoring the scheduling layer.
+Part 1 covers the foundation: hub and spoke architecture, cluster registration, and how to write `Placement` objects that express meaningful scheduling intent. [Part 2](/tutorials/kubernetes/federating-workloads-across-clusters-placementdecision-part-2/) covers what happens next — reading `PlacementDecision`, integrating with GitOps, handling cluster churn, and monitoring the scheduling layer.
 
 ---
 
@@ -319,4 +323,4 @@ You now have a `Placement` that continuously evaluates your cluster fleet and wr
 
 What you do not yet have is anything acting on those decisions. A `PlacementDecision` sitting unread is just metadata.
 
-[Part 2](/articles/federating-workloads-across-clusters-placementdecision-part-2/) covers exactly this: how to read `PlacementDecision` correctly across pagination boundaries, how to wire it to GitOps engines and `ManifestWork` controllers, how prioritisers shape which clusters are selected when the eligible set is larger than `numberOfClusters`, and how to handle cluster churn in production without manual intervention.
+[Part 2](/tutorials/kubernetes/federating-workloads-across-clusters-placementdecision-part-2/) covers exactly this: how to read `PlacementDecision` correctly across pagination boundaries, how to wire it to GitOps engines and `ManifestWork` controllers, how prioritisers shape which clusters are selected when the eligible set is larger than `numberOfClusters`, and how to handle cluster churn in production without manual intervention.

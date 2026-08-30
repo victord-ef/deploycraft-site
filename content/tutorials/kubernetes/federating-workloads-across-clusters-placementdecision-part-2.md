@@ -1,15 +1,19 @@
 ---
 title: "Federating Workloads Across Clusters Using PlacementDecision — Part 2: Multi-Cluster Scheduling"
 date: 2026-08-28
-author: "Victor D"
 description: "PlacementDecision is where multi-cluster intent becomes action. In Part 2 we move from declaring placement policies to actually driving workload scheduling — using PlacementDecision as the source of truth for controllers, GitOps engines, and custom automation."
+cluster: "Kubernetes"
+series: "Multi-cluster Scheduling"
+part: 2
+difficulty: "advanced"
+duration: "45 min"
 tags: ["kubernetes", "multi-cluster", "open-cluster-management", "placement", "gitops", "platform-engineering", "federation"]
-categories: ["article"]
+categories: ["tutorial"]
 draft: false
 toc: true
 ---
 
-In [Part 1](/articles/federating-workloads-across-clusters-placementdecision-part-1/) we covered the OCM Placement API — how to declare intent about where workloads should run using `Placement` objects, `ManagedClusterSets`, and label-based predicates. At the end of Part 1 you had a `Placement` that matched clusters by region, environment, or capacity. What you didn't have was anything acting on it.
+In [Part 1](/tutorials/kubernetes/federating-workloads-across-clusters-placementdecision-part-1/) we covered the OCM Placement API — how to declare intent about where workloads should run using `Placement` objects, `ManagedClusterSets`, and label-based predicates. At the end of Part 1 you had a `Placement` that matched clusters by region, environment, or capacity. What you didn't have was anything acting on it.
 
 This is where `PlacementDecision` enters the picture.
 

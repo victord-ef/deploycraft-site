@@ -1,5 +1,5 @@
 ---
-title: "The NetworkPolicy That Did Nothing — Part 1: Debugging a Missing CNI in Kubernetes"
+title: "The NetworkPolicy That Did Nothing: Debugging a Missing CNI in Kubernetes"
 date: 2026-08-06
 author: "Victor D"
 description: "A NetworkPolicy was applied, the rules looked correct, but traffic kept flowing. The root cause had nothing to do with the policy itself — it was that no CNI plugin was running at all."

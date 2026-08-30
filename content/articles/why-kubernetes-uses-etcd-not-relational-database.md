@@ -1,5 +1,5 @@
 ---
-title: "Why Kubernetes Uses etcd — Part 1: Architecture and the Case Against Relational Databases"
+title: "Why Kubernetes Uses etcd and Not a Relational Database"
 date: 2026-08-06
 author: "Victor D"
 description: "Kubernetes stores all cluster state in etcd — a distributed key-value store — not PostgreSQL or MySQL. Here is why that decision makes sense and what it means for how Kubernetes actually works."

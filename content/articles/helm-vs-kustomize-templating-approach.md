@@ -1,5 +1,5 @@
 ---
-title: "Helm vs Kustomize — Part 1: Picking the Right Templating Approach"
+title: "Helm vs Kustomize — Picking the Right Templating Approach"
 date: 2026-08-06
 author: "Victor D"
 description: "Helm and Kustomize solve different problems despite often being compared as alternatives. Understanding what each tool actually is — not just what it does — makes the choice obvious for most use cases."

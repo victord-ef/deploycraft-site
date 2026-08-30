@@ -1,5 +1,5 @@
 ---
-title: "Istio vs Linkerd — Part 1: The Real Trade-offs in Production"
+title: "Istio vs Linkerd — The Real Trade-offs in Production"
 date: 2026-08-06
 author: "Victor D"
 description: "Both Istio and Linkerd implement service mesh correctly. The choice is about operational complexity, resource overhead, and how much traffic management capability your platform actually needs."

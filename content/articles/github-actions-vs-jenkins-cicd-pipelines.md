@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actions vs Jenkins — Part 1: CI/CD Pipeline Trade-offs"
+title: "GitHub Actions vs Jenkins — CI/CD Pipeline Trade-offs"
 date: 2026-08-06
 author: "Victor D"
 description: "Jenkins gives you complete control over your CI/CD infrastructure. GitHub Actions removes most of that infrastructure entirely. The choice is about what your team is actually equipped and willing to operate."

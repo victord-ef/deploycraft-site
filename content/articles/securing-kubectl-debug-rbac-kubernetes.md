@@ -1,5 +1,5 @@
 ---
-title: "The Double-Edged Sword — Part 1: Securing kubectl debug in Kubernetes"
+title: "The Double-Edged Sword: Securing kubectl debug in Kubernetes"
 date: 2026-08-06
 author: "Victor D"
 description: "kubectl debug is invaluable for troubleshooting distroless containers — and one of the easiest privilege escalation paths in a Kubernetes cluster. Here is how it works, what attackers do with it, and how to lock it down."

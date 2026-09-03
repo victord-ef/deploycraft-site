@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Quick Reference</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ with .Content }}
+    <div class="cheatsheet-intro">{{ . }}</div>
+    {{ end }}
+
+    {{ if .RegularPages }}
+    <div class="cheatsheet-grid">
+      {{ range .RegularPages.ByWeight }}
+      <a href="{{ .RelPermalink }}" class="cheatsheet-card">
+        <div class="cheatsheet-card-top">
+          {{ with .Params.icon }}<span class="cheatsheet-icon">{{ . }}</span>{{ end }}
+          {{ with .Params.count }}<span class="cheatsheet-count">{{ . }} commands</span>{{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.tags }}
+        <div class="cheatsheet-tags">
+          {{ range first 3 . }}<span class="tool-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">📋</span>
+      <h2>Cheatsheets coming soon</h2>
+      <p>Quick-reference command libraries for Kubernetes, Docker, Terraform, and more.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

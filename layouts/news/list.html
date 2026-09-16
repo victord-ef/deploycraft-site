@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="news-index">
+  <div class="container">
+
+    <header class="list-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="list-desc">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="news-list">
+      {{ range .RegularPages.ByDate.Reverse }}
+      <article class="news-item">
+        <div class="news-item-meta">
+          {{ if not .Date.IsZero }}<time>{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
+        </div>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.tags }}
+        <div class="tag-list">
+          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
+        {{ end }}
+      </article>
+      {{ else }}
+      <p class="no-content">No news articles yet. Check back soon.</p>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+{{ end }}

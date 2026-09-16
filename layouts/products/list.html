@@ -1,0 +1,35 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Services</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .RegularPages }}
+    <div class="product-grid">
+      {{ range .RegularPages.ByWeight }}
+      <a href="{{ .RelPermalink }}" class="product-card">
+        <div class="product-card-top">
+          {{ with .Params.icon }}<span class="product-icon">{{ . }}</span>{{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <span class="product-cta">View service →</span>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">🔧</span>
+      <h2>Services coming soon</h2>
+      <p>Professional security services for engineering teams — penetration testing, DevSecOps advisory, and more.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

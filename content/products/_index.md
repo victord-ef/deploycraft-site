@@ -1,5 +1,5 @@
 ---
 title: "Products"
-description: "DeployCraft.io product portfolio — coming soon."
+description: "Professional security services for engineering teams building and operating cloud-native infrastructure."
 weight: 1
 ---

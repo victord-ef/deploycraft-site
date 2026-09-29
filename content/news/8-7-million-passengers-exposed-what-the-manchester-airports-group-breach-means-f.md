@@ -2,7 +2,7 @@
 title: "8.7 Million Passengers Exposed: What the Manchester Airports Group Breach Means for the Travel Sector"
 date: 2026-08-27
 author: "Victor D"
-description: "1. Introduction: When Passenger Data Becomes the Target Critical national infrastructure has long been the focus of advanced threat actors, but the..."
+description: "A data breach at Manchester Airports Group exposed personal data for 8.7 million passengers across Manchester Airport, London Stansted, and East Midlands Airport — a case study in third-party attack surface exposure and the consequences of aggregating passenger data across ancillary services."
 tags: ["news", "devsecops"]
 categories: ["news"]
 draft: false

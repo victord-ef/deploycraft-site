@@ -2,7 +2,7 @@
 title: "The 72-Hour Warning: What You Need to Know About the NetScaler Memory Vulnerability (CVE-2026-8452)"
 date: 2026-08-27
 author: "Victor D"
-description: "1. Introduction: The High-Stakes Game of Digital Gatekeeping In the high-stakes theater of enterprise edge security, NetScaler ADC and NetScaler Gateway..."
+description: "CVE-2026-8452, a memory overflow in Citrix NetScaler ADC and NetScaler Gateway, allows unauthenticated attackers to trigger denial-of-service across internet-facing SSL VPN and AAA servers. CISA added it to the KEV Catalog with a 72-hour remediation deadline under BOD 22-01."
 tags: ["vulnerability", "cve", "news", "devsecops"]
 categories: ["news"]
 draft: false

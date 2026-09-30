@@ -16,7 +16,33 @@
     <div class="product-intro">{{ . }}</div>
     {{ end }}
 
+    {{ with .Params.pricing }}
+    <div class="pricing-section">
+      <h2 class="pricing-heading">Simple, transparent pricing</h2>
+      <p class="pricing-sub">Month-to-month. No lock-in. 30-day notice to cancel.</p>
+      <div class="pricing-grid">
+        {{ range . }}
+        <div class="pricing-card{{ if .featured }} pricing-card--featured{{ end }}">
+          {{ if .featured }}<span class="pricing-popular">Most popular</span>{{ end }}
+          <div class="pricing-tier">{{ .tier }}</div>
+          <div class="pricing-price">
+            <span class="pricing-amount">{{ .price }}</span>
+            <span class="pricing-suffix">{{ .price_suffix }}</span>
+          </div>
+          <p class="pricing-tagline">{{ .tagline }}</p>
+          <ul class="pricing-includes">
+            {{ range .includes }}
+            <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
     {{ with .Params.services }}
+    <h2 class="services-heading">What we handle</h2>
     <div class="pentest-grid">
       {{ range . }}
       <div class="pentest-card">
@@ -29,9 +55,9 @@
     {{ end }}
 
     <div class="product-cta-block">
-      <h2>Get in touch</h2>
-      <p>Engagements are scoped individually. Contact to discuss your environment, timeline, and objectives.</p>
-      <button class="btn-primary" id="contact-trigger">Request an engagement →</button>
+      <h2>{{ with .Params.cta_title }}{{ . }}{{ else }}Get in touch{{ end }}</h2>
+      <p>{{ with .Params.cta_body }}{{ . }}{{ else }}Engagements are scoped individually. Contact to discuss your environment, timeline, and objectives.{{ end }}</p>
+      <button class="btn-primary" id="contact-trigger">{{ with .Params.cta_btn }}{{ . }}{{ else }}Request an engagement →{{ end }}</button>
     </div>
 
   </div>

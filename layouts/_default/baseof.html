@@ -49,7 +49,23 @@
       <nav>
         <a href="/news">Latest News</a>
         <a href="/products">Products</a>
-        <a href="/tutorials">Tutorials</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Tutorials <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-grid">
+              {{ $tutorials := site.GetPage "/tutorials" }}
+              {{ range $tutorials.Sections }}
+              <a href="{{ .RelPermalink }}" class="nav-dropdown-item">
+                {{ with .Params.icon }}<span class="nav-topic-icon">{{ . }}</span>{{ end }}
+                <span>{{ .Title }}</span>
+              </a>
+              {{ end }}
+            </div>
+            <div class="nav-dropdown-footer">
+              <a href="/tutorials">View all tutorials →</a>
+            </div>
+          </div>
+        </div>
         <a href="/articles">Articles</a>
         <a href="/labs">Labs</a>
         <a href="/snippets">Snippets</a>

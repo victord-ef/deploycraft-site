@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+
+    <header class="section-page-header">
+      <span class="section-eyebrow">Free browser-based tools</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="tools-hub-grid">
+      {{ range .Sections.ByParam "weight" }}
+      <a href="{{ .RelPermalink }}" class="tools-hub-card">
+        <span class="tools-hub-icon">{{ .Params.icon }}</span>
+        <div>
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </div>
+        <span class="tools-hub-arrow">→</span>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+{{ end }}

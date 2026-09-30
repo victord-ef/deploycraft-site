@@ -162,6 +162,38 @@ nav a:hover { color: var(--text); text-decoration: none; }
 
 .nav-dropdown-footer a:hover { color: var(--accent-2); text-decoration: none; }
 
+.nav-dropdown-list { min-width: 260px; }
+.nav-dropdown-list .nav-dropdown-item { display: flex; align-items: center; gap: 0.6rem; }
+
+/* ─── Tools Hub ─────────────────────────────────── */
+.tools-hub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.tools-hub-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.tools-hub-card:hover { border-color: var(--accent); text-decoration: none; }
+
+.tools-hub-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.tools-hub-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; }
+.tools-hub-card p  { font-size: 0.875rem; color: var(--muted); margin: 0; }
+
+.tools-hub-arrow { margin-left: auto; color: var(--muted); font-size: 1rem; flex-shrink: 0; }
+
 /* ─── Buttons ──────────────────────────────────── */
 .btn-primary {
   display: inline-block;

@@ -67,7 +67,21 @@
           </div>
         </div>
         <a href="/articles">Articles</a>
-        <a href="/tools">Tools</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Tools <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu nav-dropdown-list">
+            {{ $tools := site.GetPage "/tools" }}
+            {{ range $tools.Sections.ByParam "weight" }}
+            <a href="{{ .RelPermalink }}" class="nav-dropdown-item">
+              {{ with .Params.icon }}<span class="nav-topic-icon">{{ . }}</span>{{ end }}
+              <span>{{ .Title }}</span>
+            </a>
+            {{ end }}
+            <div class="nav-dropdown-footer">
+              <a href="/tools">View all tools →</a>
+            </div>
+          </div>
+        </div>
         <a href="/snippets">Snippets</a>
         <a href="/cheatsheets">Cheatsheets</a>
         <a href="/about">About</a>

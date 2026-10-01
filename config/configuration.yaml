@@ -51,8 +51,27 @@ feeds:
   - name: CISA Advisories
     url: https://www.cisa.gov/cybersecurity-advisories/all.xml
 
+  - name: CISA ICS Advisories
+    url: https://www.cisa.gov/cybersecurity-advisories/ics-advisories.xml
+
   - name: Red Hat Security
     url: https://www.redhat.com/en/rss/blog/channel/security
+
+  # ── Cryptography, Certificates & Encryption ─────────────────────────────
+  - name: OpenSSL Blog
+    url: https://openssl-library.org/post/index.xml
+
+  - name: Let's Encrypt
+    url: https://letsencrypt.org/feed.xml
+
+  - name: Mozilla Security Blog
+    url: https://blog.mozilla.org/security/feed/
+
+  - name: Schneier on Security
+    url: https://www.schneier.com/blog/atom.xml
+
+  - name: Google Project Zero
+    url: https://googleprojectzero.blogspot.com/feeds/posts/default
 
   # ── Cloud Native & DevSecOps ─────────────────────────────────────────────
   - name: Snyk

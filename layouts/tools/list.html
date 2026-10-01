@@ -3,11 +3,47 @@
   <div class="container">
 
     <header class="section-page-header">
-      <span class="section-eyebrow">Free browser-based tools</span>
+      {{ if .Parent }}{{ with .Parent.Title }}
+      <span class="section-eyebrow"><a href="{{ $.Parent.RelPermalink }}">{{ . }}</a> /</span>
+      {{ end }}{{ end }}
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}
     </header>
 
+    {{ if .RegularPages }}
+    {{/* ── Category page: list tools ── */}}
+    <div class="tools-cat-list">
+      {{ range .RegularPages.ByParam "weight" }}
+      {{ $isLive := eq .Params.status "live" }}
+      <div class="tool-card {{ if $isLive }}tool-card-live{{ end }}">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">{{ .Params.icon }}</span>
+          <div class="tool-card-meta">
+            <h3 class="tool-card-title">{{ .Title }}</h3>
+            <span class="tool-card-badge {{ if $isLive }}badge-live{{ else }}badge-soon{{ end }}">
+              {{ if $isLive }}Live{{ else }}Coming Soon{{ end }}
+            </span>
+          </div>
+        </div>
+        <p class="tool-card-desc">{{ .Description }}</p>
+        {{ with .Params.tags }}
+        <div class="tool-card-tags">
+          {{ range . }}<span class="tool-tag-pill">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        <div class="tool-card-actions">
+          {{ if and $isLive .Params.tool_url }}
+          <a href="{{ .Params.tool_url }}" target="_blank" rel="noopener" class="btn-tool-launch">Launch tool →</a>
+          {{ else }}
+          <span class="btn-tool-soon">Coming Soon</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ else if .Sections }}
+    {{/* ── Hub page: list categories ── */}}
     <div class="tools-hub-grid">
       {{ range .Sections.ByParam "weight" }}
       <a href="{{ .RelPermalink }}" class="tools-hub-card">
@@ -20,6 +56,15 @@
       </a>
       {{ end }}
     </div>
+
+    {{ else }}
+    <div class="section-coming-soon">
+      <span class="coming-icon">🔧</span>
+      <h2>Tools launching soon</h2>
+      <p>Browser-based tools for DevOps and DevSecOps engineers — no install, no login.</p>
+      <a href="/#subscribe" class="btn-primary" style="margin-top:2rem;display:inline-block;">Get notified →</a>
+    </div>
+    {{ end }}
 
   </div>
 </section>

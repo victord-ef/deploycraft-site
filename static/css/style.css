@@ -162,6 +162,38 @@ nav a:hover { color: var(--text); text-decoration: none; }
 
 .nav-dropdown-footer a:hover { color: var(--accent-2); text-decoration: none; }
 
+.nav-dropdown-list { min-width: 260px; }
+.nav-dropdown-list .nav-dropdown-item { display: flex; align-items: center; gap: 0.6rem; }
+
+/* ─── Tools Hub ─────────────────────────────────── */
+.tools-hub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.tools-hub-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.tools-hub-card:hover { border-color: var(--accent); text-decoration: none; }
+
+.tools-hub-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.tools-hub-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; }
+.tools-hub-card p  { font-size: 0.875rem; color: var(--muted); margin: 0; }
+
+.tools-hub-arrow { margin-left: auto; color: var(--muted); font-size: 1rem; flex-shrink: 0; }
+
 /* ─── Buttons ──────────────────────────────────── */
 .btn-primary {
   display: inline-block;
@@ -667,6 +699,10 @@ nav a:hover { color: var(--text); text-decoration: none; }
 }
 
 .tutorials-cta { text-align: center; margin-top: 2rem; }
+
+.tool-soon  { color: var(--muted); }
+.tool-live  { color: #10b981; }
+.tool-title { font-weight: 600; color: var(--text); font-size: 0.95rem; }
 
 /* ─── List Page ─────────────────────────────────── */
 .list-page { padding: 4rem 0; }
@@ -2282,58 +2318,104 @@ nav a:hover { color: var(--text); text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 
-/* ─── Services Promo (Homepage) ─────────────────── */
-.services-promo {
+/* ─── Services (Homepage) ────────────────────────── */
+.services-home {
   padding: 5rem 0;
   border-bottom: 1px solid var(--border);
   background: radial-gradient(ellipse at 0% 50%, rgba(59,130,246,0.06) 0%, transparent 60%);
 }
 
-.services-promo-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+.services-home-header {
+  margin-bottom: 2.5rem;
 }
 
-.services-promo-text .section-eyebrow {
+.services-home-header .section-eyebrow {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.services-promo-text h2 {
+.services-home-header h2 {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.5px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.services-promo-text p {
+.services-home-header .section-lead {
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.75rem;
+  max-width: 560px;
 }
 
-.services-promo-stats {
+.services-home-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.promo-stat {
+.service-home-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
-  transition: border-color 0.2s;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
-.promo-stat:hover { border-color: var(--accent); }
-.promo-stat span  { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
-.promo-stat strong { display: block; font-size: 0.875rem; font-weight: 700; margin-bottom: 0.25rem; }
-.promo-stat p { color: var(--muted); font-size: 0.8rem; line-height: 1.4; margin: 0; }
+.service-home-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.service-home-icon { font-size: 2rem; line-height: 1; }
+
+.service-home-body { flex: 1; }
+.service-home-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.service-home-body p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.service-home-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.service-home-price {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.service-home-cta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.service-home-card:hover .service-home-cta { color: var(--accent); }
+
+.services-home-all {
+  margin-top: 2rem;
+  text-align: center;
+}
 
 /* ─── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
@@ -2356,6 +2438,5 @@ nav a:hover { color: var(--text); text-decoration: none; }
   .product-grid, .pentest-grid { grid-template-columns: 1fr; }
   .cheatsheet-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
-  .services-promo-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .services-promo-stats { grid-template-columns: 1fr 1fr; }
+  .services-home-grid { grid-template-columns: 1fr; }
 }

@@ -103,38 +103,55 @@
   </div>
 </section>
 
-<!-- SERVICES PROMO -->
-<section class="services-promo" id="services">
+<!-- SERVICES -->
+<section class="services-home" id="services">
   <div class="container">
-    <div class="services-promo-inner">
-      <div class="services-promo-text">
-        <span class="section-eyebrow">DevOps-as-a-Service</span>
-        <h2>Senior DevOps coverage,<br>without the full-time hire</h2>
-        <p>CI/CD pipelines, Kubernetes cluster management, DevSecOps hardening, and monitoring — delivered as a retainer by a certified practitioner. From $500/mo.</p>
-        <a href="/products/devops-as-a-service" class="btn-primary">See service tiers →</a>
-      </div>
-      <div class="services-promo-stats">
-        <div class="promo-stat">
-          <span>⚙️</span>
-          <strong>CI/CD & Kubernetes</strong>
-          <p>GitHub Actions, EKS, GKE, ArgoCD</p>
+    <div class="services-home-header">
+      <span class="section-eyebrow">Professional Services</span>
+      <h2>What we offer</h2>
+      <p class="section-lead">Hands-on delivery by a certified practitioner — no account managers, no juniors. Every engagement is direct.</p>
+    </div>
+    <div class="services-home-grid">
+
+      <a href="/products/devops-as-a-service" class="service-home-card">
+        <span class="service-home-icon">⚙️</span>
+        <div class="service-home-body">
+          <h3>DevOps-as-a-Service</h3>
+          <p>CI/CD pipelines, Kubernetes cluster management, DevSecOps hardening, and monitoring — on retainer. Senior coverage without the full-time hire.</p>
         </div>
-        <div class="promo-stat">
-          <span>🔐</span>
-          <strong>DevSecOps</strong>
-          <p>Snyk, OPA, SOPS, supply chain</p>
+        <div class="service-home-footer">
+          <span class="service-home-price">From $500/mo</span>
+          <span class="service-home-cta">See tiers →</span>
         </div>
-        <div class="promo-stat">
-          <span>📊</span>
-          <strong>Observability</strong>
-          <p>Datadog, Grafana, Prometheus</p>
+      </a>
+
+      <a href="/products/gauntlet" class="service-home-card">
+        <span class="service-home-icon">⚔️</span>
+        <div class="service-home-body">
+          <h3>Gauntlet</h3>
+          <p>AI-powered security scanner — eight specialist tools in parallel, then Claude triages findings, cuts false positives, and delivers a prioritised PDF report.</p>
         </div>
-        <div class="promo-stat">
-          <span>✅</span>
-          <strong>Compliance</strong>
-          <p>SOC2 readiness, IaC audit trails</p>
+        <div class="service-home-footer">
+          <span class="service-home-price">From $500 flat</span>
+          <span class="service-home-cta">View service →</span>
         </div>
-      </div>
+      </a>
+
+      <a href="/products/soc2-audit-readiness" class="service-home-card">
+        <span class="service-home-icon">📋</span>
+        <div class="service-home-body">
+          <h3>SOC2 Audit Readiness</h3>
+          <p>Gap analysis, technical control implementation, evidence automation, and auditor support for Type I and Type II — built on your existing IaC and CI/CD.</p>
+        </div>
+        <div class="service-home-footer">
+          <span class="service-home-price">From $2,500</span>
+          <span class="service-home-cta">View service →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="services-home-all">
+      <a href="/products" class="btn-secondary">View all services →</a>
     </div>
   </div>
 </section>
@@ -167,6 +184,143 @@
   </div>
 </section>
 {{ end }}
+
+<!-- TOOLS -->
+<section class="tutorials" id="tools">
+  <div class="container">
+    <h2>Tools</h2>
+
+    <div class="series-group">
+      <h3>🌐 Networking</h3>
+      <div class="tutorial-list">
+        <div class="tutorial-item">
+          <span class="part-label tool-live">Live</span>
+          <div class="tutorial-info"><span class="tool-title"><a href="https://victord-ef.github.io/DeployCraft-SubnetCalculator/" target="_blank" rel="noopener">Subnet Calculator</a></span><p>CIDR range, usable hosts, network address, and broadcast — all from a single prefix.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">DNS Lookup</span><p>Query A, MX, TXT, CNAME, and NS records with propagation status across resolvers.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">HTTP Header Analyzer</span><p>Inspect security headers — HSTS, CSP, X-Frame-Options — and surface misconfigurations.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Port Scanner</span><p>Check open and closed ports on a host you control, with service fingerprinting.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">IP Geolocation</span><p>ASN, country, ISP, and routing information for any public IP address.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="series-group">
+      <h3>🔐 Certificates / PKI</h3>
+      <div class="tutorial-list">
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">SSL Certificate Decoder</span><p>Paste a PEM certificate and extract subject, SANs, issuer, expiry, and chain details.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">CSR Generator / Decoder</span><p>Generate or inspect certificate signing requests — key size, subject, and extensions.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Certificate Expiry Tracker</span><p>Monitor multiple domains and get alerts before certificates expire.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">JWT Decoder</span><p>Decode header and payload, inspect claims, and validate signature algorithms.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="series-group">
+      <h3>☸️ Kubernetes</h3>
+      <div class="tutorial-list">
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">YAML Linter / Validator</span><p>Dry-run style Kubernetes manifest validation — catch schema errors before kubectl apply.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">RBAC Analyzer</span><p>Paste a Role or ClusterRole and visualize the effective permissions it grants.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Resource Sizing Calculator</span><p>Estimate CPU and memory requests and limits based on workload profile and replica count.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Helm Values Diff</span><p>Side-by-side diff of two values.yaml files — surfaces changes before a release upgrade.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Manifest Generator</span><p>Guided builder for Deployment, Service, Ingress, and ConfigMap — export ready-to-apply YAML.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="series-group">
+      <h3>🛡️ Security / DevSecOps</h3>
+      <div class="tutorial-list">
+        <div class="tutorial-item">
+          <span class="part-label tool-live">Live</span>
+          <div class="tutorial-info"><span class="tool-title"><a href="https://sprites.fly.dev/" target="_blank" rel="noopener">Plagiarism Checker</a></span><p>Winnowing fingerprint algorithm — detect copied passages across documents with character-level highlighting.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Dockerfile Linter</span><p>Hadolint-based rule checks with plain-English fix suggestions for each violation.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Secret Scanner</span><p>Paste code or config — detect exposed API keys, tokens, and credentials before they ship.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">CVE Lookup</span><p>Search NVD and OSV by CVE ID or package name and see affected versions and fix status.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">SBOM Viewer</span><p>Parse and visualize CycloneDX and SPDX software bills of materials — components, licenses, vulnerabilities.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="series-group">
+      <h3>⚙️ CI/CD & Utilities</h3>
+      <div class="tutorial-list">
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Cron Expression Builder</span><p>Build and decode cron expressions with a human-readable description and next-run preview.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">GitHub Actions Linter</span><p>Validate workflow YAML syntax, catch unsupported keys, and flag common misconfiguration patterns.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">Regex Tester</span><p>Live match highlighting with group capture, flags, and a plain-English pattern explanation.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">JSON / YAML Formatter</span><p>Format, validate, diff, and convert between JSON and YAML — paste and go.</p></div>
+        </div>
+        <div class="tutorial-item">
+          <span class="part-label tool-soon">Soon</span>
+          <div class="tutorial-info"><span class="tool-title">.gitignore Generator</span><p>Generate a .gitignore by language, framework, or IDE — combined into a single clean file.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tutorials-cta">
+      <a href="/tools" class="btn-secondary">View all tools →</a>
+    </div>
+  </div>
+</section>
 
 <!-- LATEST -->
 {{ $latest := first 6 site.RegularPages }}

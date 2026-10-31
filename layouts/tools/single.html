@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="section-page tool-page">
+  <div class="container tool-page-container">
+
+    <header class="tool-page-header">
+      <div class="tool-breadcrumb">
+        <a href="/tools/">Tools</a>
+        <span>/</span>
+        <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+        <span>/</span>
+        <span>{{ .Title }}</span>
+      </div>
+    </header>
+
+    {{ .Content }}
+
+  </div>
+</section>
+{{ end }}

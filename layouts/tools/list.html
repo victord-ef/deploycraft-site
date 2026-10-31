@@ -32,8 +32,12 @@
         </div>
         {{ end }}
         <div class="tool-card-actions">
-          {{ if and $isLive .Params.tool_url }}
-          <a href="{{ .Params.tool_url }}" target="_blank" rel="noopener" class="btn-tool-launch">Launch tool →</a>
+          {{ if $isLive }}
+            {{ if .Params.tool_url }}
+            <a href="{{ .Params.tool_url }}" target="_blank" rel="noopener" class="btn-tool-launch">Launch tool →</a>
+            {{ else }}
+            <a href="{{ .RelPermalink }}" class="btn-tool-launch">Launch tool →</a>
+            {{ end }}
           {{ else }}
           <span class="btn-tool-soon">Coming Soon</span>
           {{ end }}

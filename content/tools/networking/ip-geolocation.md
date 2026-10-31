@@ -287,16 +287,32 @@ weight: 5
     on ? show(loading) : hide(loading);
   }
 
-  async function tryIpwho(query) {
-    const url = query ? `https://ipwho.is/${encodeURIComponent(query)}` : 'https://ipwho.is/';
+  function regionFlag(cc) {
+    return [...cc.toUpperCase()].map(c => String.fromCodePoint(0x1F1E0 - 65 + c.charCodeAt(0))).join('');
+  }
+
+  // Resolve domain names to IPs via Cloudflare DNS-over-HTTPS
+  async function resolveDomain(host) {
+    const r = await fetch(
+      `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(host)}&type=A`,
+      { headers: { Accept: 'application/dns-json' }, signal: AbortSignal.timeout(5000) }
+    );
+    const d = await r.json();
+    const ip = d.Answer?.find(a => a.type === 1)?.data;
+    if (!ip) throw new Error(`Could not resolve ${host}`);
+    return ip;
+  }
+
+  async function tryIpwho(ip) {
+    const url = ip ? `https://ipwho.is/${encodeURIComponent(ip)}` : 'https://ipwho.is/';
     const res  = await fetch(url, { signal: AbortSignal.timeout(8000) });
     const data = await res.json();
     if (!data.success) throw new Error(data.message || 'Lookup failed');
     return data;
   }
 
-  async function tryIpapi(query) {
-    const url = query ? `https://ipapi.co/${encodeURIComponent(query)}/json/` : 'https://ipapi.co/json/';
+  async function tryIpapi(ip) {
+    const url = ip ? `https://ipapi.co/${encodeURIComponent(ip)}/json/` : 'https://ipapi.co/json/';
     const res  = await fetch(url, { signal: AbortSignal.timeout(8000) });
     const data = await res.json();
     if (data.error) throw new Error(data.reason || 'Lookup failed');
@@ -317,18 +333,19 @@ weight: 5
     };
   }
 
-  function regionFlag(cc) {
-    return [...cc.toUpperCase()].map(c => String.fromCodePoint(0x1F1E0 - 65 + c.charCodeAt(0))).join('');
-  }
-
   async function lookup(query) {
     setLoading(true);
     hide(errorEl);
     hide(resultEl);
     try {
+      // Resolve domain names to IP first (geo APIs only accept IPs)
+      let target = query;
+      if (query && !/^[\d.:a-fA-F]+$/.test(query)) {
+        target = await resolveDomain(query);
+      }
       let data;
-      try       { data = await tryIpwho(query); }
-      catch (e) { data = await tryIpapi(query); }
+      try       { data = await tryIpwho(target); }
+      catch (e) { data = await tryIpapi(target); }
       render(data);
       show(resultEl);
     } catch (e) {
